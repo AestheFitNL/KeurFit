@@ -1,0 +1,1 @@
+export default function sitemap(){return [{url:'https://keurfit.nl',lastModified:new Date(),changeFrequency:'weekly',priority:1},{url:'https://keurfit.nl/overige-keuringen',lastModified:new Date(),changeFrequency:'monthly',priority:.8}]}
