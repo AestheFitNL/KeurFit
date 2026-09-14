@@ -347,9 +347,14 @@ export default function Home() {
             </p>
           </div>
 
-          <a href="mailto:afspraak@keurfit.nl" className="button">
-            Afspraak aanvragen
-          </a>
+          <a
+  href="https://cal.com/ali-kumas-2t9ulq/15min"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="button"
+>
+  Plan direct een afspraak
+</a>
         </div>
       </section>
 
