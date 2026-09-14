@@ -1,32 +1,4 @@
-const rijbewijsKeuringen = [
-  {
-    title: "75+ rijbewijskeuring",
-    text: "Medische rijbewijskeuring voor het verlengen van uw rijbewijs vanaf 75 jaar."
-  },
-  {
-    title: "CBR-keuring op verwijzing",
-    text: "Heeft u een verwijzing van het CBR ontvangen? Wij beoordelen vooraf of de keuring door onze arts kan worden uitgevoerd."
-  },
-  {
-    title: "CBR artsenformulieren",
-    text: "Verschillende aanvullende CBR-formulieren kunnen door een BIG-geregistreerd arts worden ingevuld."
-  }
-];
-
-const overigeKeuringen = [
-  {
-    title: "Sportkeuring",
-    text: "Een medische beoordeling voor sport en inspanning, afgestemd op uw situatie en het doel van de keuring."
-  },
-  {
-    title: "Medische verklaring",
-    text: "Een onafhankelijke medische beoordeling wanneer een verklaring van een onafhankelijke arts wordt gevraagd."
-  },
-  {
-    title: "Verzekeringskeuring",
-    text: "Medisch onderzoek in opdracht van of ten behoeve van een verzekeraar, volgens de ontvangen keuringsopdracht."
-  }
-];
+const bookingUrl = "https://cal.com/ali-kumas-2t9ulq/15min";
 
 export default function Home() {
   return (
@@ -35,16 +7,23 @@ export default function Home() {
         <div className="container nav">
           <a href="/" className="logo">
             <span className="logoK">K</span>
-            <span>Keur<span>Fit</span></span>
+            <span>
+              Keur<span>Fit</span>
+            </span>
           </a>
 
           <nav>
             <a href="#rijbewijskeuringen">Rijbewijskeuringen</a>
-            <a href="#overige">Overige keuringen</a>
-            <a href="#tarieven">Tarieven</a>
-            <a href="#over">Over KeurFit</a>
+            <a href="#overige-keuringen">Overige keuringen</a>
+            <a href="#werkwijze">Werkwijze</a>
             <a href="#faq">FAQ</a>
-            <a href="https://cal.com/ali-kumas-2t9ulq/15min" className="navButton">
+
+            <a
+              href={bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="navButton"
+            >
               Afspraak maken
             </a>
           </nav>
@@ -54,20 +33,26 @@ export default function Home() {
       <section className="hero">
         <div className="container heroGrid">
           <div>
-            <p className="eyebrow">KEURINGSARTS IN NIJMEGEN</p>
+            <p className="eyebrow">RIJBEWIJSKEURING NIJMEGEN</p>
 
             <h1>
-              Rijbewijskeuring in Nijmegen
-              <span>Snel en zorgvuldig geregeld.</span>
+              Snel en zorgvuldig
+              <span>medisch gekeurd.</span>
             </h1>
 
             <p className="lead">
-              KeurFit biedt rijbewijskeuringen en andere medische keuringen
-              door een BIG-geregistreerd arts in Nijmegen.
+              Rijbewijskeuringen en andere medische keuringen door een
+              BIG-geregistreerd arts in Nijmegen. Persoonlijk, duidelijk en
+              eenvoudig online te plannen.
             </p>
 
             <div className="buttons">
-              href="https://cal.com/ali-kumas-2t9ulq/15min" className="button">
+              <a
+                href={bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="button"
+              >
                 Afspraak maken
               </a>
 
@@ -84,19 +69,21 @@ export default function Home() {
           </div>
 
           <div className="infoCard">
-            <p className="smallTitle">RIJBEWIJSKEURING</p>
+            <p className="smallTitle">GOED VOORBEREID</p>
+
             <h2>Wat neemt u mee?</h2>
 
             <ul>
               <li>Geldig legitimatiebewijs</li>
-              <li>CBR-verwijsbrief</li>
-              <li>ZorgDomein-code(s), indien ontvangen</li>
+              <li>CBR-verwijsbrief indien van toepassing</li>
+              <li>ZorgDomein-code(s) indien ontvangen</li>
               <li>Bril of contactlenzen indien van toepassing</li>
               <li>Actueel medicatieoverzicht indien relevant</li>
             </ul>
 
             <p className="cardText">
-              Twijfelt u welke keuring u nodig heeft? Neem vooraf contact op.
+              Heeft u een verwijzing van het CBR? Controleer dan vooraf welk
+              type arts wordt gevraagd.
             </p>
           </div>
         </div>
@@ -105,110 +92,205 @@ export default function Home() {
       <section id="rijbewijskeuringen" className="section">
         <div className="container">
           <p className="eyebrow">RIJBEWIJSKEURINGEN</p>
+
           <h2 className="sectionTitle">
-            Rijbewijskeuring door een arts in Nijmegen
+            Medische keuringen voor uw rijbewijs
           </h2>
 
           <p className="intro">
-            Heeft het CBR u gevraagd om een medische keuring of moet u vanwege
-            uw leeftijd worden gekeurd? Bij KeurFit kunt u terecht voor
-            verschillende rijbewijskeuringen die door een algemeen
-            BIG-geregistreerd arts mogen worden uitgevoerd.
+            Bij KeurFit kunt u terecht voor verschillende rijbewijskeuringen.
+            De verwijzing van het CBR is altijd leidend bij de vraag welk type
+            arts de keuring moet uitvoeren.
           </p>
 
           <div className="cards">
-            {rijbewijsKeuringen.map((item) => (
-              <article className="card" key={item.title}>
-                <div className="cardIcon">+</div>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-                <a href="https://cal.com/ali-kumas-2t9ulq/15min">Plan deze keuring →</a>
-              </article>
-            ))}
+            <article className="card">
+              <div className="cardIcon">75</div>
+
+              <h3>75+ rijbewijskeuring</h3>
+
+              <p>
+                Medische keuring voor het verlengen van uw rijbewijs vanaf 75
+                jaar.
+              </p>
+
+              <a href="/75-plus-keuring">
+                Meer over de 75+ keuring →
+              </a>
+            </article>
+
+            <article className="card">
+              <div className="cardIcon">+</div>
+
+              <h3>CBR-keuring op verwijzing</h3>
+
+              <p>
+                Heeft u van het CBR een verwijzing ontvangen? Wanneer een
+                algemeen keurend arts volstaat, kunt u in veel gevallen bij
+                KeurFit terecht.
+              </p>
+
+              <a href="/cbr-keuring">
+                Meer over CBR-keuringen →
+              </a>
+            </article>
+
+            <article className="card">
+              <div className="cardIcon">✓</div>
+
+              <h3>CBR-artsenformulieren</h3>
+
+              <p>
+                Bepaalde medische artsenformulieren kunnen door een algemeen
+                BIG-geregistreerd arts worden ingevuld.
+              </p>
+
+              <a href="/rijbewijskeuring-nijmegen">
+                Meer over rijbewijskeuringen →
+              </a>
+            </article>
           </div>
 
           <div className="notice">
-            <strong>Goed om te weten:</strong> voor sommige CBR-keuringen is
-            een specifieke medisch specialist, bedrijfsarts of andere
-            aangewezen arts vereist. De CBR-verwijsbrief is daarom leidend.
+            <strong>Let op:</strong> vraagt het CBR expliciet om een
+            psychiater, neuroloog, oogarts, cardioloog, bedrijfsarts of andere
+            specifieke specialist, dan moet de beoordeling door die arts worden
+            uitgevoerd.
           </div>
         </div>
       </section>
 
-      <section id="overige" className="section soft">
+      <section id="overige-keuringen" className="section soft">
         <div className="container">
-          <p className="eyebrow">OVERIGE KEURINGEN</p>
+          <p className="eyebrow">OVERIGE MEDISCHE KEURINGEN</p>
 
           <h2 className="sectionTitle">
-            Ook voor andere medische keuringen
+            Ook voor andere medische beoordelingen
           </h2>
 
           <p className="intro">
-            Naast rijbewijskeuringen kunt u bij KeurFit terecht voor een aantal
-            andere onafhankelijke medische keuringen in Nijmegen.
+            Naast rijbewijskeuringen wil KeurFit ook andere medische keuringen
+            aanbieden in Nijmegen.
           </p>
 
           <div className="cards">
-            {overigeKeuringen.map((item) => (
-              <article className="card" key={item.title}>
-                <div className="cardIcon">✓</div>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-                <a href="https://cal.com/ali-kumas-2t9ulq/15min">Afspraak maken →</a>
-              </article>
-            ))}
-          </div>
+            <article className="card">
+              <div className="cardIcon">S</div>
 
-          <div className="notice">
-            Heeft u een formulier of keuringsopdracht ontvangen? Stuur deze
-            vooraf op. Wij controleren of de keuring door een algemeen
-            BIG-geregistreerd arts mag worden uitgevoerd.
+              <h3>Sportkeuring</h3>
+
+              <p>
+                Medische beoordeling voorafgaand aan sport, inspanning of
+                deelname aan een evenement.
+              </p>
+
+              <a
+                href={bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Informeer naar mogelijkheden →
+              </a>
+            </article>
+
+            <article className="card">
+              <div className="cardIcon">M</div>
+
+              <h3>Medische verklaring</h3>
+
+              <p>
+                Onafhankelijke medische beoordeling wanneer een medische
+                verklaring nodig is.
+              </p>
+
+              <a
+                href={bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Informeer naar mogelijkheden →
+              </a>
+            </article>
+
+            <article className="card">
+              <div className="cardIcon">V</div>
+
+              <h3>Verzekeringskeuring</h3>
+
+              <p>
+                Medische keuring in het kader van een verzekering, afhankelijk
+                van de gevraagde beoordeling.
+              </p>
+
+              <a
+                href={bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Informeer naar mogelijkheden →
+              </a>
+            </article>
           </div>
         </div>
       </section>
 
-      <section className="section">
+      <section id="werkwijze" className="section">
         <div className="container">
           <p className="eyebrow">WERKWIJZE</p>
-          <h2 className="sectionTitle">In vier stappen geregeld</h2>
+
+          <h2 className="sectionTitle">
+            Een keuring in vier eenvoudige stappen
+          </h2>
 
           <div className="steps">
             <div className="step">
               <span>1</span>
+
               <div>
-                <h3>Maak een afspraak</h3>
-                <p>Kies de keuring waarvoor u een afspraak wilt maken.</p>
+                <h3>Kies uw keuring</h3>
+
+                <p>
+                  Controleer welke medische keuring of beoordeling u nodig
+                  heeft.
+                </p>
               </div>
             </div>
 
             <div className="step">
               <span>2</span>
+
               <div>
-                <h3>Neem uw documenten mee</h3>
+                <h3>Plan online een afspraak</h3>
+
                 <p>
-                  Neem uw legitimatie en eventuele CBR-documenten of
-                  keuringsformulieren mee.
+                  Kies via de online agenda een beschikbaar moment dat u goed
+                  uitkomt.
                 </p>
               </div>
             </div>
 
             <div className="step">
               <span>3</span>
+
               <div>
-                <h3>Medische keuring</h3>
+                <h3>Kom naar de keuring</h3>
+
                 <p>
-                  De arts verricht het onderzoek dat voor uw keuring nodig is.
+                  Neem uw legitimatie en de relevante documenten mee naar de
+                  afspraak.
                 </p>
               </div>
             </div>
 
             <div className="step">
               <span>4</span>
+
               <div>
-                <h3>Verwerking</h3>
+                <h3>Medische beoordeling</h3>
+
                 <p>
-                  Het formulier of rapport wordt volgens de geldende procedure
-                  verwerkt.
+                  De arts voert de benodigde beoordeling uit en verwerkt de
+                  relevante medische bevindingen.
                 </p>
               </div>
             </div>
@@ -216,119 +298,144 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="tarieven" className="section soft">
-        <div className="container">
-          <p className="eyebrow">TARIEVEN</p>
-          <h2 className="sectionTitle">Duidelijke tarieven</h2>
-
-          <div className="priceBox">
-            <div>
-              <h3>75+ rijbewijskeuring</h3>
-              <p>Inclusief benodigde medische beoordeling.</p>
-            </div>
-            <strong>Tarief volgt</strong>
-          </div>
-
-          <div className="priceBox">
-            <div>
-              <h3>Overige CBR-keuring</h3>
-              <p>Afhankelijk van het aantal benodigde formulieren.</p>
-            </div>
-            <strong>Tarief volgt</strong>
-          </div>
-
-          <div className="priceBox">
-            <div>
-              <h3>Sportkeuring</h3>
-              <p>Algemene medische sportkeuring.</p>
-            </div>
-            <strong>Tarief volgt</strong>
-          </div>
-
-          <div className="priceBox">
-            <div>
-              <h3>Overige medische keuring</h3>
-              <p>Afhankelijk van de keuringsopdracht.</p>
-            </div>
-            <strong>Op aanvraag</strong>
-          </div>
-        </div>
-      </section>
-
-      <section id="over" className="section">
+      <section className="section soft">
         <div className="container twoColumns">
           <div>
-            <p className="eyebrow">OVER KEURFIT</p>
+            <p className="eyebrow">KEURFIT</p>
+
             <h2 className="sectionTitle">
-              Medische keuringen zonder onnodig gedoe
+              Medische keuringen met persoonlijke aandacht
             </h2>
           </div>
 
           <div className="aboutText">
             <p>
-              KeurFit is een medische keuringspraktijk in Nijmegen. De
-              keuringen worden uitgevoerd door een BIG-geregistreerd arts.
+              KeurFit is gericht op toegankelijke medische keuringen in
+              Nijmegen en omgeving.
             </p>
 
             <p>
-              We vinden het belangrijk dat u vooraf weet wat u moet meenemen,
-              wat er tijdens de keuring gebeurt en wat de vervolgstappen zijn.
+              De keuringen worden uitgevoerd door een BIG-geregistreerd arts,
+              met aandacht voor een duidelijke uitleg en zorgvuldige medische
+              beoordeling.
             </p>
 
             <p>
-              Bij een CBR-keuring rapporteert de arts de relevante medische
-              bevindingen. Het CBR neemt uiteindelijk de beslissing over uw
-              rijgeschiktheid.
+              KeurFit is er voor cliënten uit Nijmegen en omliggende plaatsen
+              zoals Lent, Beuningen, Wijchen, Malden, Berg en Dal en Groesbeek.
             </p>
           </div>
         </div>
       </section>
 
-      <section id="faq" className="section dark">
+      <section className="section dark">
         <div className="container">
-          <p className="eyebrow light">VEELGESTELDE VRAGEN</p>
-          <h2 className="sectionTitle">Praktische informatie</h2>
+          <p className="eyebrow light">CBR-KEURING</p>
+
+          <h2 className="sectionTitle">
+            Het CBR beslist over uw rijgeschiktheid
+          </h2>
+
+          <p className="intro" style={{ color: "#c7d9d1" }}>
+            KeurFit verricht de medische beoordeling en rapporteert de
+            relevante bevindingen. Het CBR neemt daarna de uiteindelijke
+            beslissing over uw rijgeschiktheid.
+          </p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <p className="eyebrow">TARIEVEN</p>
+
+          <h2 className="sectionTitle">
+            Duidelijke tarieven
+          </h2>
+
+          <div className="cards">
+            <article className="card">
+              <h3>75+ rijbewijskeuring</h3>
+              <p className="price">Tarief volgt</p>
+              <p>
+                Medische keuring in het kader van de rijbewijsverlenging vanaf
+                75 jaar.
+              </p>
+            </article>
+
+            <article className="card">
+              <h3>CBR medische keuring</h3>
+              <p className="price">Tarief volgt</p>
+              <p>
+                Voor CBR-verwijzingen waarbij een algemeen keurend arts
+                volstaat.
+              </p>
+            </article>
+
+            <article className="card">
+              <h3>Overige keuringen</h3>
+              <p className="price">Op aanvraag</p>
+              <p>
+                Tarief afhankelijk van het type keuring en de benodigde
+                medische beoordeling.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className="section">
+        <div className="container">
+          <p className="eyebrow">VEELGESTELDE VRAGEN</p>
+
+          <h2 className="sectionTitle">
+            Veelgestelde vragen
+          </h2>
 
           <div className="faq">
             <details>
-              <summary>Waar vindt de keuring plaats?</summary>
+              <summary>Kan ik bij KeurFit terecht voor een 75+ keuring?</summary>
+
               <p>
-                De praktijk bevindt zich in Nijmegen. Het definitieve
-                praktijkadres wordt bij de afspraak vermeld.
+                Ja. Een 75+ rijbewijskeuring kan door een BIG-geregistreerd arts
+                worden uitgevoerd.
               </p>
             </details>
 
             <details>
-              <summary>Wat moet ik meenemen naar een CBR-keuring?</summary>
+              <summary>Kan KeurFit iedere CBR-keuring uitvoeren?</summary>
+
               <p>
-                Neem uw legitimatiebewijs, CBR-verwijsbrief,
-                ZorgDomein-code(s), eventuele bril of contactlenzen en
-                relevante medische informatie mee.
+                Nee. De verwijzing van het CBR bepaalt welk type arts de keuring
+                moet uitvoeren. Wanneer een specifieke specialist wordt
+                gevraagd, moet de beoordeling door die specialist plaatsvinden.
               </p>
             </details>
 
             <details>
-              <summary>Kan ik voor iedere CBR-keuring bij KeurFit terecht?</summary>
+              <summary>Wat moet ik meenemen naar een rijbewijskeuring?</summary>
+
               <p>
-                Nee. Sommige keuringen moeten door een specifieke specialist
-                of andere aangewezen arts worden uitgevoerd. Uw CBR-verwijsbrief
-                bepaalt welk type arts nodig is.
+                Neem uw legitimatiebewijs, CBR-documenten, eventuele
+                ZorgDomein-code(s) en indien relevant uw bril, contactlenzen en
+                medicatieoverzicht mee.
               </p>
             </details>
 
             <details>
-              <summary>Kan ik bij KeurFit een medische verklaring krijgen?</summary>
+              <summary>Hoe lang duurt een rijbewijskeuring?</summary>
+
               <p>
-                Dat hangt af van het doel van de verklaring. Stuur het
-                formulier vooraf op, zodat we kunnen beoordelen of een
-                onafhankelijke algemeen arts de beoordeling mag uitvoeren.
+                Voor een standaard rijbewijskeuring wordt momenteel ongeveer
+                15 minuten gereserveerd.
               </p>
             </details>
 
             <details>
-              <summary>Wie bepaalt of ik rijgeschikt ben?</summary>
+              <summary>Wie beslist uiteindelijk of ik rijgeschikt ben?</summary>
+
               <p>
-                Het CBR neemt de uiteindelijke beslissing over uw
+                Bij CBR-keuringen rapporteert de arts de relevante medische
+                bevindingen. Het CBR neemt de uiteindelijke beslissing over uw
                 rijgeschiktheid.
               </p>
             </details>
@@ -340,21 +447,22 @@ export default function Home() {
         <div className="container appointmentInner">
           <div>
             <p className="eyebrow">AFSPRAAK MAKEN</p>
-            <h2>KeurFit Nijmegen</h2>
+
+            <h2>Plan uw medische keuring</h2>
+
             <p>
-              Plan een afspraak voor uw rijbewijskeuring of andere medische
-              keuring.
+              Bekijk direct de beschikbare momenten en plan uw afspraak online.
             </p>
           </div>
 
           <a
-  href="https://cal.com/ali-kumas-2t9ulq/15min"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="button"
->
-  Plan direct een afspraak
-</a>
+            href={bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="button"
+          >
+            Bekijk beschikbare tijden
+          </a>
         </div>
       </section>
 
@@ -363,7 +471,10 @@ export default function Home() {
           <div>
             <div className="logo footerLogo">
               <span className="logoK">K</span>
-              <span>Keur<span>Fit</span></span>
+
+              <span>
+                Keur<span>Fit</span>
+              </span>
             </div>
 
             <p>
@@ -381,10 +492,23 @@ export default function Home() {
           </div>
 
           <div>
-            <strong>Keuringen</strong>
-            <a href="#rijbewijskeuringen">Rijbewijskeuringen</a>
-            <a href="#overige">Overige keuringen</a>
-            <a href="https://cal.com/ali-kumas-2t9ulq/15min">Afspraak maken</a>
+            <strong>Navigatie</strong>
+            <a href="/rijbewijskeuring-nijmegen">
+              Rijbewijskeuring Nijmegen
+            </a>
+            <a href="/75-plus-keuring">
+              75+ rijbewijskeuring
+            </a>
+            <a href="/cbr-keuring">
+              CBR-keuring
+            </a>
+            <a
+              href={bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Afspraak maken
+            </a>
           </div>
         </div>
 
@@ -393,7 +517,12 @@ export default function Home() {
         </div>
       </footer>
 
-      <a href="https://cal.com/ali-kumas-2t9ulq/15min" className="mobileAppointment">
+      <a
+        href={bookingUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mobileAppointment"
+      >
         Afspraak maken
       </a>
     </main>
