@@ -1,15 +1,19 @@
-const bookingUrl = "https://cal.com/ali-kumas-2t9ulq/15min";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <main>
       <header className="header">
         <div className="container nav">
-          <a href="/" className="logo">
-            <span className="logoK">K</span>
-            <span>
-              Keur<span>Fit</span>
-            </span>
+          <a href="/" className="brandLogo" aria-label="KeurFit home">
+            <Image
+              src="/keurfit-logo.png"
+              alt="KeurFit Rijbewijskeuringen"
+              width={220}
+              height={220}
+              priority
+              className="headerLogo"
+            />
           </a>
 
           <nav>
@@ -18,12 +22,7 @@ export default function Home() {
             <a href="#werkwijze">Werkwijze</a>
             <a href="#faq">FAQ</a>
 
-            <a
-              href={bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="navButton"
-            >
+            <a href="#afspraak" className="navButton">
               Afspraak maken
             </a>
           </nav>
@@ -47,12 +46,7 @@ export default function Home() {
             </p>
 
             <div className="buttons">
-              <a
-                href={bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button"
-              >
+              <a href="#afspraak" className="button">
                 Afspraak maken
               </a>
 
@@ -68,23 +62,15 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="infoCard">
-            <p className="smallTitle">GOED VOORBEREID</p>
-
-            <h2>Wat neemt u mee?</h2>
-
-            <ul>
-              <li>Geldig legitimatiebewijs</li>
-              <li>CBR-verwijsbrief indien van toepassing</li>
-              <li>ZorgDomein-code(s) indien ontvangen</li>
-              <li>Bril of contactlenzen indien van toepassing</li>
-              <li>Actueel medicatieoverzicht indien relevant</li>
-            </ul>
-
-            <p className="cardText">
-              Heeft u een verwijzing van het CBR? Controleer dan vooraf welk
-              type arts wordt gevraagd.
-            </p>
+          <div className="heroLogoCard">
+            <Image
+              src="/keurfit-logo.png"
+              alt="KeurFit"
+              width={520}
+              height={520}
+              priority
+              className="heroLogo"
+            />
           </div>
         </div>
       </section>
@@ -110,8 +96,8 @@ export default function Home() {
               <h3>75+ rijbewijskeuring</h3>
 
               <p>
-                Medische keuring voor het verlengen van uw rijbewijs vanaf 75
-                jaar.
+                Medische keuring voor het verlengen van uw rijbewijs vanaf
+                75 jaar.
               </p>
 
               <a href="/75-plus-keuring">
@@ -176,59 +162,29 @@ export default function Home() {
           <div className="cards">
             <article className="card">
               <div className="cardIcon">S</div>
-
               <h3>Sportkeuring</h3>
-
               <p>
                 Medische beoordeling voorafgaand aan sport, inspanning of
                 deelname aan een evenement.
               </p>
-
-              <a
-                href={bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Informeer naar mogelijkheden →
-              </a>
             </article>
 
             <article className="card">
               <div className="cardIcon">M</div>
-
               <h3>Medische verklaring</h3>
-
               <p>
                 Onafhankelijke medische beoordeling wanneer een medische
                 verklaring nodig is.
               </p>
-
-              <a
-                href={bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Informeer naar mogelijkheden →
-              </a>
             </article>
 
             <article className="card">
               <div className="cardIcon">V</div>
-
               <h3>Verzekeringskeuring</h3>
-
               <p>
                 Medische keuring in het kader van een verzekering, afhankelijk
                 van de gevraagde beoordeling.
               </p>
-
-              <a
-                href={bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Informeer naar mogelijkheden →
-              </a>
             </article>
           </div>
         </div>
@@ -245,10 +201,8 @@ export default function Home() {
           <div className="steps">
             <div className="step">
               <span>1</span>
-
               <div>
                 <h3>Kies uw keuring</h3>
-
                 <p>
                   Controleer welke medische keuring of beoordeling u nodig
                   heeft.
@@ -258,25 +212,20 @@ export default function Home() {
 
             <div className="step">
               <span>2</span>
-
               <div>
                 <h3>Plan online een afspraak</h3>
-
                 <p>
-                  Kies via de online agenda een beschikbaar moment dat u goed
-                  uitkomt.
+                  Kies hieronder via de agenda een beschikbaar moment.
                 </p>
               </div>
             </div>
 
             <div className="step">
               <span>3</span>
-
               <div>
                 <h3>Kom naar de keuring</h3>
-
                 <p>
-                  Neem uw legitimatie en de relevante documenten mee naar de
+                  Neem uw legitimatie en relevante documenten mee naar de
                   afspraak.
                 </p>
               </div>
@@ -284,10 +233,8 @@ export default function Home() {
 
             <div className="step">
               <span>4</span>
-
               <div>
                 <h3>Medische beoordeling</h3>
-
                 <p>
                   De arts voert de benodigde beoordeling uit en verwerkt de
                   relevante medische bevindingen.
@@ -316,7 +263,7 @@ export default function Home() {
 
             <p>
               De keuringen worden uitgevoerd door een BIG-geregistreerd arts,
-              met aandacht voor een duidelijke uitleg en zorgvuldige medische
+              met aandacht voor duidelijke uitleg en zorgvuldige medische
               beoordeling.
             </p>
 
@@ -344,45 +291,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <p className="eyebrow">TARIEVEN</p>
-
-          <h2 className="sectionTitle">
-            Duidelijke tarieven
-          </h2>
-
-          <div className="cards">
-            <article className="card">
-              <h3>75+ rijbewijskeuring</h3>
-              <p className="price">Tarief volgt</p>
-              <p>
-                Medische keuring in het kader van de rijbewijsverlenging vanaf
-                75 jaar.
-              </p>
-            </article>
-
-            <article className="card">
-              <h3>CBR medische keuring</h3>
-              <p className="price">Tarief volgt</p>
-              <p>
-                Voor CBR-verwijzingen waarbij een algemeen keurend arts
-                volstaat.
-              </p>
-            </article>
-
-            <article className="card">
-              <h3>Overige keuringen</h3>
-              <p className="price">Op aanvraag</p>
-              <p>
-                Tarief afhankelijk van het type keuring en de benodigde
-                medische beoordeling.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
       <section id="faq" className="section">
         <div className="container">
           <p className="eyebrow">VEELGESTELDE VRAGEN</p>
@@ -394,7 +302,6 @@ export default function Home() {
           <div className="faq">
             <details>
               <summary>Kan ik bij KeurFit terecht voor een 75+ keuring?</summary>
-
               <p>
                 Ja. Een 75+ rijbewijskeuring kan door een BIG-geregistreerd arts
                 worden uitgevoerd.
@@ -403,17 +310,14 @@ export default function Home() {
 
             <details>
               <summary>Kan KeurFit iedere CBR-keuring uitvoeren?</summary>
-
               <p>
                 Nee. De verwijzing van het CBR bepaalt welk type arts de keuring
-                moet uitvoeren. Wanneer een specifieke specialist wordt
-                gevraagd, moet de beoordeling door die specialist plaatsvinden.
+                moet uitvoeren.
               </p>
             </details>
 
             <details>
               <summary>Wat moet ik meenemen naar een rijbewijskeuring?</summary>
-
               <p>
                 Neem uw legitimatiebewijs, CBR-documenten, eventuele
                 ZorgDomein-code(s) en indien relevant uw bril, contactlenzen en
@@ -423,7 +327,6 @@ export default function Home() {
 
             <details>
               <summary>Hoe lang duurt een rijbewijskeuring?</summary>
-
               <p>
                 Voor een standaard rijbewijskeuring wordt momenteel ongeveer
                 15 minuten gereserveerd.
@@ -432,10 +335,8 @@ export default function Home() {
 
             <details>
               <summary>Wie beslist uiteindelijk of ik rijgeschikt ben?</summary>
-
               <p>
-                Bij CBR-keuringen rapporteert de arts de relevante medische
-                bevindingen. Het CBR neemt de uiteindelijke beslissing over uw
+                Het CBR neemt de uiteindelijke beslissing over uw
                 rijgeschiktheid.
               </p>
             </details>
@@ -443,39 +344,42 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="afspraak" className="section appointment">
-        <div className="container appointmentInner">
-          <div>
+      <section id="afspraak" className="section appointment bookingSection">
+        <div className="container">
+          <div className="bookingIntro">
             <p className="eyebrow">AFSPRAAK MAKEN</p>
 
-            <h2>Plan uw medische keuring</h2>
+            <h2 className="sectionTitle">
+              Plan direct uw rijbewijskeuring
+            </h2>
 
-            <p>
-              Bekijk direct de beschikbare momenten en plan uw afspraak online.
+            <p className="intro">
+              Kies hieronder een beschikbare datum en tijd. U blijft gewoon op
+              de website van KeurFit.
             </p>
           </div>
 
-          <a
-            href={bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="button"
-          >
-            Bekijk beschikbare tijden
-          </a>
+          <div className="calEmbed">
+            <iframe
+              src="https://cal.com/ali-kumas-2t9ulq/15min?embed=1"
+              title="Plan uw afspraak bij KeurFit"
+              loading="lazy"
+              allow="payment"
+            />
+          </div>
         </div>
       </section>
 
       <footer>
         <div className="container footer">
           <div>
-            <div className="logo footerLogo">
-              <span className="logoK">K</span>
-
-              <span>
-                Keur<span>Fit</span>
-              </span>
-            </div>
+            <Image
+              src="/keurfit-logo.png"
+              alt="KeurFit"
+              width={200}
+              height={200}
+              className="footerLogoImage"
+            />
 
             <p>
               Rijbewijskeuringen en medische keuringen door een
@@ -502,11 +406,7 @@ export default function Home() {
             <a href="/cbr-keuring">
               CBR-keuring
             </a>
-            <a
-              href={bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="#afspraak">
               Afspraak maken
             </a>
           </div>
@@ -517,12 +417,7 @@ export default function Home() {
         </div>
       </footer>
 
-      <a
-        href={bookingUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mobileAppointment"
-      >
+      <a href="#afspraak" className="mobileAppointment">
         Afspraak maken
       </a>
     </main>
