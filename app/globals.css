@@ -505,3 +505,95 @@ footer {
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.12);
   }
 }
+
+/* KeurFit logo */
+
+.brandLogo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.headerLogo {
+  width: 145px;
+  height: auto;
+  object-fit: contain;
+}
+
+.heroLogoCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 430px;
+}
+
+.heroLogo {
+  width: 100%;
+  max-width: 430px;
+  height: auto;
+  object-fit: contain;
+}
+
+.footerLogoImage {
+  width: 150px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* Cal.com */
+
+.bookingSection {
+  background: #f7f8f5;
+}
+
+.bookingIntro {
+  max-width: 720px;
+  margin-bottom: 30px;
+}
+
+.calEmbed {
+  width: 100%;
+  min-height: 760px;
+  background: #ffffff;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(18, 60, 49, 0.12);
+  box-shadow: 0 18px 50px rgba(18, 60, 49, 0.08);
+}
+
+.calEmbed iframe {
+  display: block;
+  width: 100%;
+  height: 760px;
+  border: 0;
+}
+
+/* Mobiel */
+
+@media (max-width: 768px) {
+  .headerLogo {
+    width: 110px;
+  }
+
+  .heroLogoCard {
+    min-height: auto;
+    padding-top: 20px;
+  }
+
+  .heroLogo {
+    max-width: 300px;
+  }
+
+  .calEmbed {
+    min-height: 720px;
+    border-radius: 16px;
+  }
+
+  .calEmbed iframe {
+    height: 720px;
+  }
+
+  .footerLogoImage {
+    width: 130px;
+  }
+}
