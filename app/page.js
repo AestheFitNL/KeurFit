@@ -310,7 +310,7 @@ export default function Home() {
         <h3>75+ keuring</h3>
 
         <p className="price">
-          €50
+          €55
           <span> incl. btw</span>
         </p>
 
@@ -328,7 +328,7 @@ export default function Home() {
         <h3>CBR-keuring</h3>
 
         <p className="price">
-          €50
+          €55
           <span> incl. btw</span>
         </p>
 
