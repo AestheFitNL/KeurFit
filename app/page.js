@@ -291,6 +291,84 @@ export default function Home() {
         </div>
       </section>
 
+              <section className="section">
+  <div className="container">
+    <p className="eyebrow">TARIEVEN</p>
+
+    <h2 className="sectionTitle">
+      Voordelig medisch gekeurd in Nijmegen
+    </h2>
+
+    <p className="intro">
+      Transparante tarieven zonder verrassingen. Alle onderstaande bedragen zijn
+      inclusief btw.
+    </p>
+
+    <div className="cards">
+      <article className="card priceCard">
+        <p className="smallTitle">75+ RIJBEWIJSKEURING</p>
+        <h3>75+ keuring</h3>
+
+        <p className="price">
+          €50
+          <span> incl. btw</span>
+        </p>
+
+        <p>
+          Voor de medische rijbewijskeuring vanaf 75 jaar.
+        </p>
+
+        <a href="#afspraak">
+          Plan uw keuring →
+        </a>
+      </article>
+
+      <article className="card priceCard featuredPrice">
+        <p className="smallTitle">CBR KEUREND ARTS</p>
+        <h3>CBR-keuring</h3>
+
+        <p className="price">
+          €50
+          <span> incl. btw</span>
+        </p>
+
+        <p>
+          Voor een CBR-verwijzing waarbij een algemeen keurend arts volstaat.
+        </p>
+
+        <a href="#afspraak">
+          Plan uw keuring →
+        </a>
+      </article>
+
+      <article className="card priceCard">
+        <p className="smallTitle">AANVULLEND</p>
+        <h3>Extra CBR-formulier</h3>
+
+        <p className="price">
+          vanaf €25
+          <span> incl. btw</span>
+        </p>
+
+        <p>
+          Wanneer tijdens dezelfde afspraak aanvullende beoordeling of een
+          aanvullend formulier nodig is.
+        </p>
+
+        <a href="#afspraak">
+          Afspraak maken →
+        </a>
+      </article>
+    </div>
+
+    <div className="notice">
+      <strong>Goed om te weten:</strong> wanneer een keuring uitgebreider is
+      dan een standaard afspraak of extra tijd vereist, wordt dit vooraf met u
+      besproken.
+    </div>
+  </div>
+</section>
+        
       <section id="faq" className="section">
         <div className="container">
           <p className="eyebrow">VEELGESTELDE VRAGEN</p>
