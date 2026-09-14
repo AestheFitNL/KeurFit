@@ -44,7 +44,7 @@ export default function Home() {
             <a href="#tarieven">Tarieven</a>
             <a href="#over">Over KeurFit</a>
             <a href="#faq">FAQ</a>
-            <a href="#afspraak" className="navButton">
+            <a href="https://cal.com/ali-kumas-2t9ulq/15min" className="navButton">
               Afspraak maken
             </a>
           </nav>
@@ -67,7 +67,7 @@ export default function Home() {
             </p>
 
             <div className="buttons">
-              <a href="#afspraak" className="button">
+              href="https://cal.com/ali-kumas-2t9ulq/15min" className="button">
                 Afspraak maken
               </a>
 
@@ -122,7 +122,7 @@ export default function Home() {
                 <div className="cardIcon">+</div>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
-                <a href="#afspraak">Plan deze keuring →</a>
+                <a href="https://cal.com/ali-kumas-2t9ulq/15min">Plan deze keuring →</a>
               </article>
             ))}
           </div>
@@ -154,7 +154,7 @@ export default function Home() {
                 <div className="cardIcon">✓</div>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
-                <a href="#afspraak">Afspraak maken →</a>
+                <a href="https://cal.com/ali-kumas-2t9ulq/15min">Afspraak maken →</a>
               </article>
             ))}
           </div>
@@ -384,7 +384,7 @@ export default function Home() {
             <strong>Keuringen</strong>
             <a href="#rijbewijskeuringen">Rijbewijskeuringen</a>
             <a href="#overige">Overige keuringen</a>
-            <a href="#afspraak">Afspraak maken</a>
+            <a href="https://cal.com/ali-kumas-2t9ulq/15min">Afspraak maken</a>
           </div>
         </div>
 
@@ -393,7 +393,7 @@ export default function Home() {
         </div>
       </footer>
 
-      <a href="#afspraak" className="mobileAppointment">
+      <a href="https://cal.com/ali-kumas-2t9ulq/15min" className="mobileAppointment">
         Afspraak maken
       </a>
     </main>
