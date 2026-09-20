@@ -1,414 +1,18 @@
-"use client";
-
 import Image from "next/image";
 import KeurFitBooking from "./components/KeurFitBooking";
-import { useState } from "react";
-
-const keuringen = [
-  {
-    id: "75plus",
-    icon: "75",
-    naam: "75+ rijbewijskeuring",
-    duur: 15,
-    prijs: 55,
-    omschrijving: "Voor het verlengen van het rijbewijs vanaf 75 jaar.",
-  },
-  {
-    id: "medisch-tot-75",
-    icon: "M",
-    naam: "Medische rijbewijskeuring tot 75 jaar",
-    duur: 15,
-    prijs: 55,
-    omschrijving:
-      "Medische rijbewijskeuring wanneer een algemeen keurend arts volstaat.",
-  },
-  {
-    id: "sport",
-    icon: "S",
-    naam: "Basis sportkeuring",
-    duur: 15,
-    prijs: 60,
-    omschrijving:
-      "Medische basisbeoordeling voor sport, inspanning of deelname.",
-  },
-  {
-    id: "knaf",
-    icon: "K",
-    naam: "KNAF-keuring",
-    duur: 15,
-    prijs: 60,
-    omschrijving: "Medische keuring voor deelname aan de autosport.",
-  },
-  {
-    id: "verzekering",
-    icon: "V",
-    naam: "Verzekeringskeuring",
-    duur: 30,
-    prijs: null,
-    omschrijving:
-      "Medische keuring in het kader van een verzekering.",
-  },
-];
-
-const tijden = [
-  "09:00",
-  "09:15",
-  "09:30",
-  "09:45",
-  "10:00",
-  "10:15",
-  "10:30",
-  "10:45",
-  "11:00",
-  "11:15",
-  "11:30",
-  "11:45",
-];
-
-function BookingPlanner() {
-  const [keuring, setKeuring] = useState(null);
-  const [datum, setDatum] = useState("");
-  const [tijd, setTijd] = useState("");
-
-  const [gegevens, setGegevens] = useState({
-    naam: "",
-    geboortedatum: "",
-    email: "",
-    telefoon: "",
-  });
-
-  const geselecteerd = keuringen.find((item) => item.id === keuring);
-
-  function wijzigGegevens(event) {
-    setGegevens({
-      ...gegevens,
-      [event.target.name]: event.target.value,
-    });
-  }
-
-  function verstuur(event) {
-    event.preventDefault();
-
-    if (!geselecteerd) {
-      alert("Kies eerst het type keuring.");
-      return;
-    }
-
-    if (!datum || !tijd) {
-      alert("Kies een datum en tijd.");
-      return;
-    }
-
-    alert(
-      `Afspraak geselecteerd:\n\n${geselecteerd.naam}\n${datum} om ${tijd}`
-    );
-  }
-
-  return (
-    <div className="bookingShell">
-
-      {/* STAP 1 */}
-
-      <div className="bookingStep">
-        <div className="bookingStepHeader">
-          <span className="bookingStepNumber">1</span>
-
-          <div>
-            <h3>Kies uw keuring</h3>
-            <p className="bookingStepDescription">
-              Selecteer waarvoor u een afspraak wilt maken.
-            </p>
-          </div>
-        </div>
-
-        <div className="appointmentTypes">
-          {keuringen.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              className={`appointmentType ${
-                keuring === item.id ? "selected" : ""
-              }`}
-              onClick={() => {
-                setKeuring(item.id);
-                setTijd("");
-              }}
-            >
-              <div className="bookingTypeIcon">{item.icon}</div>
-
-              <div>
-                <span className="appointmentTypeTitle">
-                  {item.naam}
-                </span>
-
-                <span className="appointmentTypeDescription">
-                  {item.omschrijving}
-                </span>
-
-                <span className="appointmentTypeMeta">
-                  <span>{item.duur} minuten</span>
-
-                  <span>•</span>
-
-                  <span className="appointmentTypePrice">
-                    {item.prijs
-                      ? `€${item.prijs}`
-                      : "Prijs afhankelijk van keuring"}
-                  </span>
-                </span>
-              </div>
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* STAP 2 */}
-
-      <div
-        className={`bookingStep ${
-          !geselecteerd ? "bookingDisabled" : ""
-        }`}
-      >
-        <div className="bookingStepHeader">
-          <span className="bookingStepNumber">2</span>
-
-          <div>
-            <h3>Kies datum en tijd</h3>
-
-            <p className="bookingStepDescription">
-              Kies een beschikbaar moment voor uw keuring.
-            </p>
-          </div>
-        </div>
-
-        <div className="bookingDateTime">
-
-          <div className="calendarBox">
-
-            <label className="bookingDateLabel">
-              Datum
-            </label>
-
-            <input
-              type="date"
-              className="bookingDateInput"
-              value={datum}
-              min={new Date().toISOString().split("T")[0]}
-              onChange={(event) => {
-                setDatum(event.target.value);
-                setTijd("");
-              }}
-              disabled={!geselecteerd}
-            />
-
-            {geselecteerd && (
-              <div className="selectedServiceMini">
-                <span>{geselecteerd.naam}</span>
-
-                <strong>
-                  {geselecteerd.duur} min
-                </strong>
-              </div>
-            )}
-
-          </div>
-
-          <div className="timeBox">
-
-            {!datum ? (
-              <div className="emptyTimes">
-
-                <div className="emptyTimesIcon">
-                  ◷
-                </div>
-
-                <strong>Kies eerst een datum</strong>
-
-                <p>
-                  Daarna verschijnen hier de beschikbare tijden.
-                </p>
-
-              </div>
-            ) : (
-              <>
-                <h4>Beschikbare tijden</h4>
-
-                <p className="selectedDate">
-                  Kies het tijdstip dat u het beste uitkomt.
-                </p>
-
-                <div className="timeSlots">
-
-                  {tijden.map((slot) => (
-                    <button
-                      key={slot}
-                      type="button"
-                      className={`timeSlot ${
-                        tijd === slot ? "selected" : ""
-                      }`}
-                      onClick={() => setTijd(slot)}
-                    >
-                      {slot}
-                    </button>
-                  ))}
-
-                </div>
-              </>
-            )}
-
-          </div>
-
-        </div>
-      </div>
-
-      {/* STAP 3 */}
-
-      <form className="bookingStep" onSubmit={verstuur}>
-
-        <div className="bookingStepHeader">
-
-          <span className="bookingStepNumber">3</span>
-
-          <div>
-            <h3>Uw gegevens</h3>
-
-            <p className="bookingStepDescription">
-              Vul uw gegevens in om de afspraak te bevestigen.
-            </p>
-          </div>
-
-        </div>
-
-        <div className="bookingForm">
-
-          <div className="bookingField">
-
-            <label>Naam</label>
-
-            <input
-              name="naam"
-              type="text"
-              placeholder="Voor- en achternaam"
-              value={gegevens.naam}
-              onChange={wijzigGegevens}
-              required
-            />
-
-          </div>
-
-          <div className="bookingField">
-
-            <label>Geboortedatum</label>
-
-            <input
-              name="geboortedatum"
-              type="date"
-              value={gegevens.geboortedatum}
-              onChange={wijzigGegevens}
-              required
-            />
-
-          </div>
-
-          <div className="bookingField">
-
-            <label>E-mailadres</label>
-
-            <input
-              name="email"
-              type="email"
-              placeholder="naam@voorbeeld.nl"
-              value={gegevens.email}
-              onChange={wijzigGegevens}
-              required
-            />
-
-          </div>
-
-          <div className="bookingField">
-
-            <label>Telefoonnummer</label>
-
-            <input
-              name="telefoon"
-              type="tel"
-              placeholder="06 12345678"
-              value={gegevens.telefoon}
-              onChange={wijzigGegevens}
-              required
-            />
-
-          </div>
-
-        </div>
-
-        {geselecteerd && datum && tijd && (
-
-          <div className="bookingSummary">
-
-            <div>
-
-              <span className="summaryLabel">
-                UW AFSPRAAK
-              </span>
-
-              <strong>
-                {geselecteerd.naam}
-              </strong>
-
-              <span>
-                {datum} om {tijd} · {geselecteerd.duur} minuten
-              </span>
-
-            </div>
-
-            {geselecteerd.prijs && (
-
-              <strong className="summaryPrice">
-                €{geselecteerd.prijs}
-              </strong>
-
-            )}
-
-          </div>
-
-        )}
-
-        <button
-          className="bookingButton"
-          type="submit"
-        >
-          Afspraak bevestigen
-          <span>→</span>
-        </button>
-
-        <p className="bookingPrivacy">
-          Uw gegevens worden uitsluitend gebruikt voor het plannen en
-          uitvoeren van uw afspraak.
-        </p>
-
-      </form>
-
-    </div>
-  );
-}
 
 export default function Home() {
   return (
     <main>
-
       {/* HEADER */}
 
       <header className="header">
-
         <div className="container nav">
-
           <a
             href="/"
             className="brandLogo"
             aria-label="KeurFit home"
           >
-
             <Image
               src="/keurfit-logo.png"
               alt="KeurFit Rijbewijskeuringen"
@@ -417,11 +21,9 @@ export default function Home() {
               priority
               className="headerLogo"
             />
-
           </a>
 
           <nav>
-
             <a href="#rijbewijskeuringen">
               Rijbewijskeuringen
             </a>
@@ -444,22 +46,15 @@ export default function Home() {
             >
               Afspraak maken
             </a>
-
           </nav>
-
         </div>
-
       </header>
-
 
       {/* HERO */}
 
       <section className="hero">
-
         <div className="container heroGrid">
-
           <div>
-
             <p className="eyebrow">
               RIJBEWIJSKEURING NIJMEGEN
             </p>
@@ -476,7 +71,6 @@ export default function Home() {
             </p>
 
             <div className="buttons">
-
               <a
                 href="#afspraak"
                 className="button"
@@ -490,21 +84,16 @@ export default function Home() {
               >
                 Bekijk de keuringen
               </a>
-
             </div>
 
             <div className="trust">
-
               <span>✓ BIG-geregistreerd arts</span>
               <span>✓ Nijmegen</span>
               <span>✓ Persoonlijke aandacht</span>
-
             </div>
-
           </div>
 
           <div className="heroLogoCard">
-
             <Image
               src="/keurfit-logo.png"
               alt="KeurFit"
@@ -513,23 +102,17 @@ export default function Home() {
               priority
               className="heroLogo"
             />
-
           </div>
-
         </div>
-
       </section>
 
-
-      {/* RIJBEWIJS */}
+      {/* RIJBEWIJSKEURINGEN */}
 
       <section
         id="rijbewijskeuringen"
         className="section"
       >
-
         <div className="container">
-
           <p className="eyebrow">
             RIJBEWIJSKEURINGEN
           </p>
@@ -546,9 +129,7 @@ export default function Home() {
           </p>
 
           <div className="cards">
-
             <article className="card">
-
               <div className="cardIcon">
                 75
               </div>
@@ -565,12 +146,9 @@ export default function Home() {
               <a href="#afspraak">
                 Plan uw keuring →
               </a>
-
             </article>
 
-
             <article className="card">
-
               <div className="cardIcon">
                 M
               </div>
@@ -587,12 +165,9 @@ export default function Home() {
               <a href="#afspraak">
                 Plan uw keuring →
               </a>
-
             </article>
 
-
             <article className="card">
-
               <div className="cardIcon">
                 ✓
               </div>
@@ -609,24 +184,17 @@ export default function Home() {
               <a href="#afspraak">
                 Meer informatie →
               </a>
-
             </article>
-
           </div>
 
           <div className="notice">
-
             <strong>Let op:</strong> vraagt het CBR expliciet om een
             psychiater, neuroloog, oogarts, cardioloog, bedrijfsarts
             of andere specifieke specialist, dan moet de beoordeling
             door die arts worden uitgevoerd.
-
           </div>
-
         </div>
-
       </section>
-
 
       {/* OVERIGE KEURINGEN */}
 
@@ -634,9 +202,7 @@ export default function Home() {
         id="overige-keuringen"
         className="section soft"
       >
-
         <div className="container">
-
           <p className="eyebrow">
             OVERIGE MEDISCHE KEURINGEN
           </p>
@@ -651,9 +217,7 @@ export default function Home() {
           </p>
 
           <div className="cards">
-
             <article className="card">
-
               <div className="cardIcon">
                 S
               </div>
@@ -671,11 +235,14 @@ export default function Home() {
                 15 minuten · €60
               </strong>
 
+              <br />
+
+              <a href="#afspraak">
+                Plan uw keuring →
+              </a>
             </article>
 
-
             <article className="card">
-
               <div className="cardIcon">
                 K
               </div>
@@ -692,11 +259,14 @@ export default function Home() {
                 15 minuten · €60
               </strong>
 
+              <br />
+
+              <a href="#afspraak">
+                Plan uw keuring →
+              </a>
             </article>
 
-
             <article className="card">
-
               <div className="cardIcon">
                 V
               </div>
@@ -714,14 +284,15 @@ export default function Home() {
                 30 minuten
               </strong>
 
+              <br />
+
+              <a href="#afspraak">
+                Plan uw keuring →
+              </a>
             </article>
-
           </div>
-
         </div>
-
       </section>
-
 
       {/* WERKWIJZE */}
 
@@ -729,9 +300,7 @@ export default function Home() {
         id="werkwijze"
         className="section"
       >
-
         <div className="container">
-
           <p className="eyebrow">
             WERKWIJZE
           </p>
@@ -741,75 +310,61 @@ export default function Home() {
           </h2>
 
           <div className="steps">
-
             <div className="step">
-
               <span>1</span>
 
               <div>
                 <h3>Kies uw keuring</h3>
+
                 <p>
                   Selecteer de medische keuring die u nodig heeft.
                 </p>
               </div>
-
             </div>
 
-
             <div className="step">
-
               <span>2</span>
 
               <div>
                 <h3>Kies een moment</h3>
+
                 <p>
                   Bekijk direct de beschikbare data en tijden.
                 </p>
               </div>
-
             </div>
 
-
             <div className="step">
-
               <span>3</span>
 
               <div>
                 <h3>Kom naar de keuring</h3>
+
                 <p>
                   Neem uw legitimatie en relevante documenten mee.
                 </p>
               </div>
-
             </div>
 
-
             <div className="step">
-
               <span>4</span>
 
               <div>
                 <h3>Medische beoordeling</h3>
+
                 <p>
                   De arts voert de benodigde medische beoordeling uit.
                 </p>
               </div>
-
             </div>
-
           </div>
-
         </div>
-
       </section>
-
 
       {/* CBR */}
 
       <section className="section dark">
-
         <div className="container">
-
           <p className="eyebrow light">
             CBR-KEURING
           </p>
@@ -826,18 +381,13 @@ export default function Home() {
             de relevante bevindingen. Het CBR neemt daarna de
             uiteindelijke beslissing over uw rijgeschiktheid.
           </p>
-
         </div>
-
       </section>
-
 
       {/* TARIEVEN */}
 
       <section className="section">
-
         <div className="container">
-
           <p className="eyebrow">
             TARIEVEN
           </p>
@@ -851,9 +401,7 @@ export default function Home() {
           </p>
 
           <div className="cards">
-
             <article className="card priceCard">
-
               <p className="smallTitle">
                 RIJBEWIJSKEURING
               </p>
@@ -871,12 +419,9 @@ export default function Home() {
               <a href="#afspraak">
                 Plan uw keuring →
               </a>
-
             </article>
 
-
             <article className="card priceCard featuredPrice">
-
               <p className="smallTitle">
                 RIJBEWIJSKEURING
               </p>
@@ -894,12 +439,9 @@ export default function Home() {
               <a href="#afspraak">
                 Plan uw keuring →
               </a>
-
             </article>
 
-
             <article className="card priceCard">
-
               <p className="smallTitle">
                 SPORT
               </p>
@@ -917,12 +459,9 @@ export default function Home() {
               <a href="#afspraak">
                 Plan uw keuring →
               </a>
-
             </article>
 
-
             <article className="card priceCard">
-
               <p className="smallTitle">
                 AUTOSPORT
               </p>
@@ -940,15 +479,10 @@ export default function Home() {
               <a href="#afspraak">
                 Plan uw keuring →
               </a>
-
             </article>
-
           </div>
-
         </div>
-
       </section>
-
 
       {/* FAQ */}
 
@@ -956,9 +490,7 @@ export default function Home() {
         id="faq"
         className="section soft"
       >
-
         <div className="container">
-
           <p className="eyebrow">
             VEELGESTELDE VRAGEN
           </p>
@@ -968,9 +500,7 @@ export default function Home() {
           </h2>
 
           <div className="faq">
-
             <details>
-
               <summary>
                 Wat moet ik meenemen naar een rijbewijskeuring?
               </summary>
@@ -980,12 +510,9 @@ export default function Home() {
                 ZorgDomein-code(s) en indien relevant uw bril,
                 contactlenzen en medicatieoverzicht mee.
               </p>
-
             </details>
 
-
             <details>
-
               <summary>
                 Hoe lang duurt een rijbewijskeuring?
               </summary>
@@ -994,12 +521,9 @@ export default function Home() {
                 Voor een standaard rijbewijskeuring reserveren we
                 ongeveer 15 minuten.
               </p>
-
             </details>
 
-
             <details>
-
               <summary>
                 Wie beslist of ik rijgeschikt ben?
               </summary>
@@ -1008,27 +532,19 @@ export default function Home() {
                 Het CBR neemt uiteindelijk de beslissing over uw
                 rijgeschiktheid.
               </p>
-
             </details>
-
           </div>
-
         </div>
-
       </section>
 
-
-      {/* NIEUWE PLANNER */}
+      {/* AFSPRAAK MAKEN */}
 
       <section
         id="afspraak"
         className="section appointment bookingSection"
       >
-
         <div className="container">
-
           <div className="bookingIntro">
-
             <p className="eyebrow">
               AFSPRAAK MAKEN
             </p>
@@ -1038,27 +554,20 @@ export default function Home() {
             </h2>
 
             <p className="intro">
-              Kies eerst het type keuring. Daarna kiest u eenvoudig
-              een beschikbaar moment.
+              Kies uw keuring en vervolgens een beschikbaar moment.
+              Uw afspraak wordt direct online ingepland.
             </p>
-
           </div>
 
-          <BookingPlanner />
-
+          <KeurFitBooking />
         </div>
-
       </section>
-
 
       {/* FOOTER */}
 
       <footer>
-
         <div className="container footer">
-
           <div>
-
             <Image
               src="/keurfit-logo.png"
               alt="KeurFit"
@@ -1071,24 +580,18 @@ export default function Home() {
               Rijbewijskeuringen en medische keuringen door een
               BIG-geregistreerd arts in Nijmegen.
             </p>
-
           </div>
 
-
           <div>
-
             <strong>KeurFit</strong>
 
             <p>Onderdeel van AestheFit</p>
             <p>KVK: 99164752</p>
             <p>BTW-id: NL005374477B91</p>
             <p>Nijmegen</p>
-
           </div>
 
-
           <div>
-
             <strong>Navigatie</strong>
 
             <a href="#rijbewijskeuringen">
@@ -1102,17 +605,13 @@ export default function Home() {
             <a href="#afspraak">
               Afspraak maken
             </a>
-
           </div>
-
         </div>
 
         <div className="copyright">
           © 2026 KeurFit · onderdeel van AestheFit
         </div>
-
       </footer>
-
 
       <a
         href="#afspraak"
@@ -1120,7 +619,6 @@ export default function Home() {
       >
         Afspraak maken
       </a>
-
     </main>
   );
 }
