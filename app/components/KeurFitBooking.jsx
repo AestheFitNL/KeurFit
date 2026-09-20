@@ -1,350 +1,208 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Cal, { getCalApi } from "@calcom/embed-react";
 
-const appointmentTypes = [
+const keuringen = [
   {
     id: "75plus",
-    title: "75+ rijbewijskeuring",
-    duration: 15,
-    price: 55,
-    description: "Voor het verlengen van het rijbewijs vanaf 75 jaar.",
+    title: "Rijbewijskeuring 75+",
+    subtitle: "Rijbewijs verlengen vanaf 75 jaar",
+    duration: "15 min",
+    price: "€55",
+    calLink: "ali-kumas-2t9ulq/rijbewijskeuring-75-plus",
   },
   {
-    id: "medical-under-75",
+    id: "tot75",
     title: "Medische rijbewijskeuring tot 75 jaar",
-    duration: 15,
-    price: 55,
-    description: "Medische rijbewijskeuring op verwijzing van het CBR.",
+    subtitle: "Medische keuring op verwijzing van het CBR",
+    duration: "15 min",
+    price: "€55",
+    calLink: "ali-kumas-2t9ulq/medische-rijbewijskeuring-tot-75-jaar",
   },
   {
     id: "sport",
     title: "Basis sportkeuring",
-    duration: 15,
-    price: 60,
-    description: "Een medische basisbeoordeling voor sport en inspanning.",
+    subtitle: "Medische basisbeoordeling voor sport",
+    duration: "15 min",
+    price: "€60",
+    calLink: "ali-kumas-2t9ulq/basis-sportkeuring",
   },
   {
     id: "knaf",
     title: "KNAF-keuring",
-    duration: 15,
-    price: 60,
-    description: "Medische keuring voor de autosport.",
+    subtitle: "Medische keuring voor autosport",
+    duration: "15 min",
+    price: "€60",
+    calLink: "ali-kumas-2t9ulq/knaf-keuring",
   },
   {
-    id: "insurance",
+    id: "verzekering",
     title: "Verzekeringskeuring",
-    duration: 30,
+    subtitle: "Medische keuring voor uw verzekering",
+    duration: "30 min",
     price: null,
-    description: "Medische keuring in het kader van een verzekering.",
+    calLink: "ali-kumas-2t9ulq/verzekeringskeuring",
   },
-];
-
-const demoDays = [
-  { day: "21", disabled: true },
-  { day: "22", available: true },
-  { day: "23", available: true },
-  { day: "24", available: true },
-  { day: "25", available: true },
-  { day: "26", disabled: true },
-  { day: "27", disabled: true },
-  { day: "28", available: true },
-  { day: "29", available: true },
-  { day: "30", available: true },
-];
-
-const demoTimes = [
-  "09:00",
-  "09:15",
-  "09:30",
-  "09:45",
-  "10:00",
-  "10:15",
-  "10:30",
-  "10:45",
-  "11:00",
-  "11:15",
 ];
 
 export default function KeurFitBooking() {
-  const [type, setType] = useState(null);
-  const [date, setDate] = useState(null);
-  const [time, setTime] = useState(null);
+  const [selected, setSelected] = useState(keuringen[0]);
 
-  const [form, setForm] = useState({
-    name: "",
-    birthDate: "",
-    email: "",
-    phone: "",
-  });
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({
+        namespace: "keurfit",
+      });
 
-  const selectedType = appointmentTypes.find(
-    (appointment) => appointment.id === type
-  );
+      cal("ui", {
+        theme: "light",
 
-  function handleInput(event) {
-    setForm({
-      ...form,
-      [event.target.name]: event.target.value,
-    });
-  }
+        styles: {
+          branding: {
+            brandColor: "#123c31",
+          },
+        },
 
-  function handleSubmit(event) {
-    event.preventDefault();
+        hideEventTypeDetails: false,
 
-    if (!selectedType || !date || !time) {
-      alert("Kies eerst een keuring, datum en tijd.");
-      return;
-    }
+        layout: "month_view",
+      });
+    })();
+  }, []);
 
-    console.log({
-      appointmentType: selectedType,
-      date,
-      time,
-      client: form,
-    });
+  function selectKeuring(item) {
+    setSelected(item);
 
-    alert(
-      "De planner is klaar voor koppeling met de centrale agenda."
-    );
+    setTimeout(() => {
+      document
+        .getElementById("keurfit-agenda")
+        ?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+    }, 100);
   }
 
   return (
-    <div className="bookingShell">
-      <div className="bookingStep">
-        <div className="bookingStepHeader">
-          <span className="bookingStepNumber">1</span>
-          <div>
-            <h3>Kies uw keuring</h3>
-            <p className="bookingStepDescription">
-              Selecteer de keuring waarvoor u een afspraak wilt maken.
-            </p>
-          </div>
-        </div>
+    <div className="keurfitBooking">
 
-        <div className="appointmentTypes">
-          {appointmentTypes.map((appointment) => (
-            <button
-              key={appointment.id}
-              type="button"
-              className={`appointmentType ${
-                type === appointment.id ? "selected" : ""
-              }`}
-              onClick={() => {
-                setType(appointment.id);
-                setTime(null);
-              }}
-            >
-              <span className="appointmentTypeTitle">
-                {appointment.title}
-              </span>
+      <div className="bookingChoiceHeader">
+        <span className="bookingChoiceStep">1</span>
 
-              <span className="appointmentTypeDescription">
-                {appointment.description}
-              </span>
-
-              <span className="appointmentTypeMeta">
-                <span>{appointment.duration} min</span>
-
-                <span className="appointmentDot">•</span>
-
-                <span className="appointmentTypePrice">
-                  {appointment.price
-                    ? `€${appointment.price}`
-                    : "Prijs afhankelijk van keuring"}
-                </span>
-              </span>
-            </button>
-          ))}
+        <div>
+          <h3>Kies uw keuring</h3>
+          <p>
+            Selecteer hieronder welke medische keuring u wilt
+            inplannen.
+          </p>
         </div>
       </div>
 
-      <div className={`bookingStep ${!type ? "bookingDisabled" : ""}`}>
-        <div className="bookingStepHeader">
-          <span className="bookingStepNumber">2</span>
-          <div>
-            <h3>Kies datum en tijd</h3>
-            <p className="bookingStepDescription">
-              Alleen beschikbare momenten worden weergegeven.
-            </p>
-          </div>
-        </div>
+      <div className="keurfitBookingOptions">
 
-        <div className="bookingDateTime">
-          <div className="calendarBox">
-            <div className="calendarHeader">
-              <button type="button" className="calendarArrow">
-                ‹
-              </button>
+        {keuringen.map((item) => (
+          <button
+            type="button"
+            key={item.id}
+            onClick={() => selectKeuring(item)}
+            className={`keurfitBookingOption ${
+              selected.id === item.id ? "active" : ""
+            }`}
+          >
+            <div className="bookingOptionTop">
 
-              <strong>September 2026</strong>
+              <span className="bookingOptionTitle">
+                {item.title}
+              </span>
 
-              <button type="button" className="calendarArrow">
-                ›
-              </button>
+              {selected.id === item.id && (
+                <span className="bookingCheck">✓</span>
+              )}
+
             </div>
 
-            <div className="calendarWeek">
-              <span>ma</span>
-              <span>di</span>
-              <span>wo</span>
-              <span>do</span>
-              <span>vr</span>
-              <span>za</span>
-              <span>zo</span>
+            <span className="bookingOptionSubtitle">
+              {item.subtitle}
+            </span>
+
+            <div className="bookingOptionBottom">
+
+              <span className="bookingDuration">
+                {item.duration}
+              </span>
+
+              {item.price && (
+                <strong>{item.price}</strong>
+              )}
+
             </div>
+          </button>
+        ))}
 
-            <div className="calendarDays">
-              {demoDays.map((item) => (
-                <button
-                  key={item.day}
-                  type="button"
-                  disabled={item.disabled || !type}
-                  className={`calendarDay ${
-                    item.available ? "available" : ""
-                  } ${date === item.day ? "selected" : ""}`}
-                  onClick={() => {
-                    setDate(item.day);
-                    setTime(null);
-                  }}
-                >
-                  {item.day}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="timeBox">
-            {!date ? (
-              <div className="emptyTimes">
-                <span className="emptyTimesIcon">○</span>
-                <strong>Kies eerst een datum</strong>
-                <p>Daarna verschijnen hier de beschikbare tijden.</p>
-              </div>
-            ) : (
-              <>
-                <h4>Dinsdag {date} september</h4>
-
-                <p className="selectedDate">
-                  {selectedType?.title} · {selectedType?.duration} minuten
-                </p>
-
-                <div className="timeSlots">
-                  {demoTimes.map((slot) => (
-                    <button
-                      key={slot}
-                      type="button"
-                      className={`timeSlot ${
-                        time === slot ? "selected" : ""
-                      }`}
-                      onClick={() => setTime(slot)}
-                    >
-                      {slot}
-                    </button>
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
-        </div>
       </div>
 
-      <form className="bookingStep" onSubmit={handleSubmit}>
-        <div className="bookingStepHeader">
-          <span className="bookingStepNumber">3</span>
+      <div
+        id="keurfit-agenda"
+        className="keurfitCalendarSection"
+      >
+
+        <div className="bookingChoiceHeader">
+
+          <span className="bookingChoiceStep">2</span>
 
           <div>
-            <h3>Uw gegevens</h3>
-            <p className="bookingStepDescription">
-              Vul uw gegevens in om de afspraak te bevestigen.
+            <h3>Kies een datum en tijd</h3>
+
+            <p>
+              Beschikbare momenten voor{" "}
+              <strong>{selected.title}</strong>
             </p>
           </div>
+
         </div>
 
-        <div className="bookingForm">
-          <div className="bookingField">
-            <label htmlFor="name">Naam</label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              placeholder="Voor- en achternaam"
-              value={form.name}
-              onChange={handleInput}
-              required
-            />
+        <div className="selectedBookingBar">
+
+          <div>
+            <span className="selectedBookingLabel">
+              GESELECTEERD
+            </span>
+
+            <strong>{selected.title}</strong>
           </div>
 
-          <div className="bookingField">
-            <label htmlFor="birthDate">Geboortedatum</label>
-            <input
-              id="birthDate"
-              name="birthDate"
-              type="date"
-              value={form.birthDate}
-              onChange={handleInput}
-              required
-            />
-          </div>
+          <div className="selectedBookingDetails">
+            <span>{selected.duration}</span>
 
-          <div className="bookingField">
-            <label htmlFor="email">E-mailadres</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="naam@voorbeeld.nl"
-              value={form.email}
-              onChange={handleInput}
-              required
-            />
-          </div>
-
-          <div className="bookingField">
-            <label htmlFor="phone">Telefoonnummer</label>
-            <input
-              id="phone"
-              name="phone"
-              type="tel"
-              placeholder="06 12345678"
-              value={form.phone}
-              onChange={handleInput}
-              required
-            />
-          </div>
-        </div>
-
-        {selectedType && date && time && (
-          <div className="bookingSummary">
-            <div>
-              <span className="summaryLabel">Uw afspraak</span>
-
-              <strong>{selectedType.title}</strong>
-
-              <span>
-                {date} september 2026 om {time} ·{" "}
-                {selectedType.duration} minuten
-              </span>
-            </div>
-
-            {selectedType.price && (
-              <strong className="summaryPrice">
-                €{selectedType.price}
-              </strong>
+            {selected.price && (
+              <strong>{selected.price}</strong>
             )}
           </div>
-        )}
 
-        <button className="bookingButton" type="submit">
-          Afspraak bevestigen
-          <span>→</span>
-        </button>
+        </div>
 
-        <p className="bookingPrivacy">
-          Uw gegevens worden uitsluitend gebruikt voor het plannen en uitvoeren
-          van uw afspraak.
-        </p>
-      </form>
+        <div className="realCalCalendar">
+
+          <Cal
+            key={selected.calLink}
+            namespace="keurfit"
+            calLink={selected.calLink}
+            style={{
+              width: "100%",
+              height: "100%",
+              overflow: "scroll",
+            }}
+            config={{
+              layout: "month_view",
+              theme: "light",
+            }}
+          />
+
+        </div>
+
+      </div>
+
     </div>
   );
 }
