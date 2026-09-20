@@ -670,3 +670,94 @@ footer {
   border: 2px solid #7fb28c;
   box-shadow: 0 14px 40px rgba(18, 60, 49, 0.08);
 }
+
+.bookingStepDescription {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.appointmentTypeDescription {
+  display: block;
+  margin-top: 8px;
+  padding-right: 25px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.appointmentDot {
+  color: #a2ada8;
+}
+
+.bookingDisabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.emptyTimes {
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--muted);
+}
+
+.emptyTimesIcon {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--green-soft);
+  color: var(--green);
+  font-size: 22px;
+}
+
+.emptyTimes p {
+  max-width: 220px;
+  margin: 5px 0 0;
+  font-size: 13px;
+}
+
+.bookingSummary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.bookingSummary > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.summaryLabel {
+  margin-bottom: 4px;
+  color: #608073;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.summaryPrice {
+  font-size: 25px;
+}
+
+.bookingButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.bookingPrivacy {
+  margin: 12px 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 11px;
+}
