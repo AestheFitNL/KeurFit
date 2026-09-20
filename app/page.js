@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import KeurFitBooking from "./components/KeurFitBooking";
 import { useState } from "react";
 
 const keuringen = [
