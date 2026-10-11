@@ -196,103 +196,103 @@ export default function Home() {
         </div>
       </section>
 
-      {/* OVERIGE KEURINGEN */}
+     {/* OVERIGE KEURINGEN */}
 
-      <section
-        id="overige-keuringen"
-        className="section soft"
-      >
-        <div className="container">
-          <p className="eyebrow">
-            OVERIGE MEDISCHE KEURINGEN
-          </p>
+<section
+  id="overige-keuringen"
+  className="section soft"
+>
+  <div className="container">
+    <p className="eyebrow">
+      OVERIGE MEDISCHE KEURINGEN
+    </p>
 
-          <h2 className="sectionTitle">
-            Ook voor andere medische keuringen
-          </h2>
+    <h2 className="sectionTitle">
+      Ook voor andere medische keuringen
+    </h2>
 
-          <p className="intro">
-            Naast rijbewijskeuringen kunt u bij KeurFit terecht voor
-            sport- en verzekeringskeuringen.
-          </p>
+    <p className="intro">
+      Naast rijbewijskeuringen kunt u bij KeurFit terecht voor
+      sport-, KNAF- en verzekeringskeuringen.
+    </p>
 
-          <div className="cards">
-            <article className="card">
-              <div className="cardIcon">
-                S
-              </div>
-
-              <h3>
-                Basis sportkeuring
-              </h3>
-
-              <p>
-                Medische basisbeoordeling voorafgaand aan sport of
-                inspanning.
-              </p>
-
-              <strong>
-                15 minuten · €60
-              </strong>
-
-              <br />
-
-              <a href="#afspraak">
-                Plan uw keuring →
-              </a>
-            </article>
-
-            <article className="card">
-              <div className="cardIcon">
-                K
-              </div>
-
-              <h3>
-                KNAF-keuring
-              </h3>
-
-              <p>
-                Medische keuring voor deelname aan de autosport.
-              </p>
-
-              <strong>
-                15 minuten · €60
-              </strong>
-
-              <br />
-
-              <a href="#afspraak">
-                Plan uw keuring →
-              </a>
-            </article>
-
-            <article className="card">
-              <div className="cardIcon">
-                V
-              </div>
-
-              <h3>
-                Verzekeringskeuring
-              </h3>
-
-              <p>
-                Medische keuring in het kader van een verzekering,
-                afhankelijk van de gevraagde beoordeling.
-              </p>
-
-              <strong>
-                30 minuten
-              </strong>
-
-              <br />
-
-              <a href="#afspraak">
-                Plan uw keuring →
-              </a>
-            </article>
-          </div>
+    <div className="cards">
+      <article className="card">
+        <div className="cardIcon">
+          S
         </div>
-      </section>
+
+        <h3>
+          Basis sportkeuring
+        </h3>
+
+        <p>
+          Medische basisbeoordeling voorafgaand aan sport of
+          inspanning.
+        </p>
+
+        <strong>
+          15 minuten · €60 incl. btw
+        </strong>
+
+        <br />
+
+        <a href="#afspraak">
+          Plan uw keuring →
+        </a>
+      </article>
+
+      <article className="card">
+        <div className="cardIcon">
+          K
+        </div>
+
+        <h3>
+          KNAF-keuring
+        </h3>
+
+        <p>
+          Medische keuring voor deelname aan de autosport.
+        </p>
+
+        <strong>
+          15 minuten · €60 incl. btw
+        </strong>
+
+        <br />
+
+        <a href="#afspraak">
+          Plan uw keuring →
+        </a>
+      </article>
+
+      <article className="card">
+        <div className="cardIcon">
+          V
+        </div>
+
+        <h3>
+          Verzekeringskeuring
+        </h3>
+
+        <p>
+          Medische keuring in het kader van een verzekering,
+          afhankelijk van de gevraagde beoordeling.
+        </p>
+
+        <strong>
+          30 minuten
+        </strong>
+
+        <br />
+
+        <a href="#afspraak">
+          Plan uw keuring →
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
 
       {/* WERKWIJZE */}
 
@@ -396,9 +396,9 @@ export default function Home() {
             Transparante tarieven
           </h2>
 
-          <p className="intro">
-            Duidelijke prijzen vooraf, zonder verrassingen.
-          </p>
+         <p className="intro">
+  Alle vermelde tarieven zijn consumentenprijzen inclusief btw, voor zover btw van toepassing is.
+</p>
 
           <div className="cards">
             <article className="card priceCard">
