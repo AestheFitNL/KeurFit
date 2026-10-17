@@ -1026,3 +1026,162 @@ footer {
     border-radius: 15px;
   }
 }
+
+/* VOORBEREIDING KEURINGEN */
+
+.preparationOpen {
+  scroll-margin-top: 110px;
+}
+
+.preparationOpen ul,
+.preparationContent ul,
+.preparationContent ol {
+  margin: 20px 0 5px;
+  padding-left: 24px;
+}
+
+.preparationOpen li,
+.preparationContent li {
+  margin-bottom: 12px;
+  color: #4f6159;
+  line-height: 1.65;
+}
+
+.preparationOpen li strong,
+.preparationContent li strong {
+  color: var(--text);
+}
+
+.preparationDetails {
+  scroll-margin-top: 110px;
+  margin-bottom: 14px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: white;
+  overflow: hidden;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.preparationDetails:hover {
+  border-color: #b9cec1;
+}
+
+.preparationDetails[open] {
+  border-color: var(--green-light);
+  box-shadow: 0 12px 35px rgba(18, 60, 49, 0.07);
+}
+
+.preparationDetails summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 24px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.preparationDetails summary::-webkit-details-marker {
+  display: none;
+}
+
+.preparationSummaryLeft {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.preparationSummaryLeft .cardIcon {
+  flex: 0 0 40px;
+  margin: 0;
+}
+
+.preparationSummaryLeft h3 {
+  margin: 0 0 3px;
+  color: var(--text);
+  font-size: 18px;
+}
+
+.preparationSummaryLeft p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.preparationPlus {
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--green-soft);
+  color: var(--green);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.preparationDetails[open] .preparationPlus {
+  transform: rotate(45deg);
+}
+
+.preparationContent {
+  padding: 2px 24px 26px 81px;
+  border-top: 1px solid var(--border);
+}
+
+.preparationContent > p:first-child {
+  margin-top: 22px;
+}
+
+.preparationContent p {
+  color: var(--muted);
+}
+
+.preparationContent h3 {
+  margin-top: 25px;
+  color: var(--text);
+}
+
+.preparationContent .buttons {
+  margin: 22px 0;
+}
+
+@media (max-width: 600px) {
+  .preparationDetails summary {
+    padding: 17px;
+  }
+
+  .preparationSummaryLeft {
+    gap: 12px;
+  }
+
+  .preparationSummaryLeft h3 {
+    font-size: 16px;
+  }
+
+  .preparationSummaryLeft p {
+    font-size: 12px;
+  }
+
+  .preparationPlus {
+    flex-basis: 32px;
+    width: 32px;
+    height: 32px;
+    font-size: 21px;
+  }
+
+  .preparationContent {
+    padding: 0 17px 22px;
+  }
+
+  .preparationContent .button {
+    width: 100%;
+    text-align: center;
+  }
+}
