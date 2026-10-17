@@ -173,8 +173,6 @@ export default function Home() {
           </p>
 
           <div className="cards">
-            {/* BASIS SPORTKEURING */}
-
             <article className="card">
               <div className="cardIcon">S</div>
 
@@ -194,8 +192,6 @@ export default function Home() {
               </a>
             </article>
 
-            {/* KNAF */}
-
             <article className="card">
               <div className="cardIcon">K</div>
 
@@ -214,8 +210,6 @@ export default function Home() {
                 Bekijk voorbereiding →
               </a>
             </article>
-
-            {/* VERZEKERING */}
 
             <article className="card">
               <div className="cardIcon">V</div>
@@ -323,7 +317,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WAT MEENEMEN */}
+      {/* WAT MOET U MEENEMEN */}
 
       <section className="section soft">
         <div className="container">
@@ -335,16 +329,15 @@ export default function Home() {
 
           <p className="intro">
             De voorbereiding verschilt per keuring. Bekijk hieronder
-            welke documenten en benodigdheden voor uw afspraak nodig
-            zijn.
+            wat u voor uw afspraak nodig heeft.
           </p>
 
-          {/* 75+ */}
+          {/* 75+ ALTIJD OPEN */}
 
           <div
             id="voorbereiding-75"
-            className="card"
-            style={{ marginBottom: "20px" }}
+            className="card preparationOpen"
+            style={{ marginBottom: "18px" }}
           >
             <div className="cardIcon">75</div>
 
@@ -392,233 +385,281 @@ export default function Home() {
             </ul>
           </div>
 
-          {/* TOT 75 */}
+          {/* TOT 75 INKLAPBAAR */}
 
-          <div
+          <details
             id="voorbereiding-tot75"
-            className="card"
-            style={{ marginBottom: "20px" }}
+            className="preparationDetails"
           >
-            <div className="cardIcon">M</div>
+            <summary>
+              <div className="preparationSummaryLeft">
+                <div className="cardIcon">M</div>
 
-            <h3>Medische rijbewijskeuring tot 75 jaar</h3>
+                <div>
+                  <h3>Medische rijbewijskeuring tot 75 jaar</h3>
+                  <p>Bekijk wat u moet meenemen</p>
+                </div>
+              </div>
 
-            <p>
-              Bent u door het CBR verwezen voor een medische beoordeling?
-              Neem dan het volgende mee:
-            </p>
+              <span className="preparationPlus">+</span>
+            </summary>
 
-            <ol>
-              <li>
-                <strong>Geldig identiteitsbewijs.</strong>
-              </li>
+            <div className="preparationContent">
+              <p>
+                Bent u door het CBR verwezen voor een medische
+                beoordeling? Neem dan het volgende mee:
+              </p>
 
-              <li>
-                <strong>
-                  CBR-verwijsbrief met alle ZorgDomein-codes
-                </strong>{" "}
-                en eventuele papieren formulieren.
-              </li>
+              <ol>
+                <li>
+                  <strong>Geldig identiteitsbewijs.</strong>
+                </li>
 
-              <li>
-                <strong>Actueel medicatieoverzicht</strong> als u
-                medicijnen gebruikt.
-              </li>
+                <li>
+                  <strong>
+                    CBR-verwijsbrief met alle ZorgDomein-codes
+                  </strong>{" "}
+                  en eventuele papieren formulieren.
+                </li>
 
-              <li>
-                <strong>Bril of contactlenzen.</strong> Bij contactlenzen
-                neemt u ook de sterkte mee.
-              </li>
+                <li>
+                  <strong>Actueel medicatieoverzicht</strong> als u
+                  medicijnen gebruikt.
+                </li>
 
-              <li>
-                <strong>Relevante medische informatie,</strong> bijvoorbeeld
-                een recente specialistenbrief.
-              </li>
-            </ol>
+                <li>
+                  <strong>Bril of contactlenzen.</strong> Bij
+                  contactlenzen neemt u ook de sterkte mee.
+                </li>
 
-            <div className="notice">
-              <strong>Controleer uw CBR-verwijzing.</strong> Heeft u
-              meerdere ZorgDomein-codes ontvangen? Neem deze allemaal mee.
+                <li>
+                  <strong>Relevante medische informatie,</strong>{" "}
+                  bijvoorbeeld een recente specialistenbrief.
+                </li>
+              </ol>
+
+              <div className="notice">
+                <strong>Controleer uw CBR-verwijzing.</strong> Heeft u
+                meerdere ZorgDomein-codes ontvangen? Neem deze allemaal
+                mee.
+              </div>
             </div>
-          </div>
+          </details>
 
-          {/* SPORT */}
+          {/* SPORT INKLAPBAAR */}
 
-          <div
+          <details
             id="voorbereiding-sport"
-            className="card"
-            style={{ marginBottom: "20px" }}
+            className="preparationDetails"
           >
-            <div className="cardIcon">S</div>
+            <summary>
+              <div className="preparationSummaryLeft">
+                <div className="cardIcon">S</div>
 
-            <h3>Basis sportkeuring</h3>
+                <div>
+                  <h3>Basis sportkeuring</h3>
+                  <p>Bekijk voorbereiding en download het formulier</p>
+                </div>
+              </div>
 
-            <p>
-              Voor de basis sportkeuring vragen we u vooraf onze
-              gezondheidsverklaring in te vullen. Download het formulier,
-              vul het thuis in en neem het ingevuld mee naar uw afspraak.
-            </p>
+              <span className="preparationPlus">+</span>
+            </summary>
 
-            <div className="buttons">
-              <a
-                href="/KeurFit-Gezondheidsverklaring-Sportkeuring.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button"
-              >
-                Download gezondheidsverklaring
-              </a>
+            <div className="preparationContent">
+              <p>
+                Voor de basis sportkeuring vragen we u vooraf onze
+                gezondheidsverklaring in te vullen. Download het
+                formulier, vul het thuis in en neem het ingevuld mee
+                naar uw afspraak.
+              </p>
+
+              <div className="buttons">
+                <a
+                  href="/KeurFit-Gezondheidsverklaring-Sportkeuring.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button"
+                >
+                  Download gezondheidsverklaring
+                </a>
+              </div>
+
+              <h3>Neem daarnaast mee:</h3>
+
+              <ul>
+                <li>
+                  <strong>
+                    Het volledig ingevulde KeurFit-formulier.
+                  </strong>
+                </li>
+
+                <li>
+                  <strong>Een geldig identiteitsbewijs.</strong>
+                </li>
+
+                <li>
+                  <strong>Een actueel medicatieoverzicht.</strong>
+                </li>
+
+                <li>
+                  <strong>Een kleine hoeveelheid verse urine.</strong>{" "}
+                  Neem deze mee in een schoon en goed afgesloten potje.
+                </li>
+
+                <li>
+                  <strong>Bril of contactlenzen</strong> indien van
+                  toepassing. Bij contactlenzen bij voorkeur ook de
+                  sterkte.
+                </li>
+
+                <li>
+                  <strong>Relevante medische informatie,</strong>{" "}
+                  bijvoorbeeld een recente brief van een behandelend
+                  specialist.
+                </li>
+              </ul>
+
+              <p>
+                Heeft de sportbond, organisator of andere instantie een
+                eigen medisch formulier? Neem dit dan ook mee naar de
+                afspraak.
+              </p>
             </div>
+          </details>
 
-            <h3>Neem daarnaast mee:</h3>
+          {/* KNAF INKLAPBAAR */}
 
-            <ul>
-              <li>
-                <strong>Het volledig ingevulde KeurFit-formulier.</strong>
-              </li>
-
-              <li>
-                <strong>Een geldig identiteitsbewijs.</strong>
-              </li>
-
-              <li>
-                <strong>Een actueel medicatieoverzicht.</strong>
-              </li>
-
-              <li>
-                <strong>Een kleine hoeveelheid verse urine.</strong> Neem
-                deze mee in een schoon en goed afgesloten potje.
-              </li>
-
-              <li>
-                <strong>Bril of contactlenzen</strong> indien van
-                toepassing. Bij contactlenzen bij voorkeur ook de sterkte.
-              </li>
-
-              <li>
-                <strong>Relevante medische informatie,</strong> bijvoorbeeld
-                een recente brief van een behandelend specialist.
-              </li>
-            </ul>
-
-            <p>
-              Heeft de sportbond, organisator of andere instantie een
-              eigen medisch formulier? Neem dit dan ook mee naar de
-              afspraak.
-            </p>
-          </div>
-
-          {/* KNAF */}
-
-          <div
+          <details
             id="voorbereiding-knaf"
-            className="card"
-            style={{ marginBottom: "20px" }}
+            className="preparationDetails"
           >
-            <div className="cardIcon">K</div>
+            <summary>
+              <div className="preparationSummaryLeft">
+                <div className="cardIcon">K</div>
 
-            <h3>KNAF-keuring</h3>
+                <div>
+                  <h3>KNAF-keuring</h3>
+                  <p>Bekijk voorbereiding en download het KNAF-formulier</p>
+                </div>
+              </div>
 
-            <p>
-              Voor een KNAF-keuring gebruikt u het officiële
-              KNAF-keuringsformulier. Download het formulier vooraf en
-              vul het gedeelte dat voor de aanvrager/deelnemer bestemd
-              is alvast thuis in.
-            </p>
+              <span className="preparationPlus">+</span>
+            </summary>
 
-            <div className="buttons">
-              <a
-                href="https://anyday-alaska-01.ams3.cdn.digitaloceanspaces.com/knaf/media/KNAF/2026/Keuringsformulier-2026.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button"
-              >
-                Download KNAF-keuringsformulier 2026
-              </a>
+            <div className="preparationContent">
+              <p>
+                Voor een KNAF-keuring gebruikt u het officiële
+                KNAF-keuringsformulier. Download het formulier vooraf en
+                vul het gedeelte dat voor de aanvrager/deelnemer bestemd
+                is alvast thuis in.
+              </p>
+
+              <div className="buttons">
+                <a
+                  href="https://anyday-alaska-01.ams3.cdn.digitaloceanspaces.com/knaf/media/KNAF/2026/Keuringsformulier-2026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button"
+                >
+                  Download KNAF-keuringsformulier 2026
+                </a>
+              </div>
+
+              <h3>Neem naar de afspraak mee:</h3>
+
+              <ul>
+                <li>
+                  <strong>Het KNAF-keuringsformulier.</strong> Vul uw
+                  eigen gedeelte vooraf zo volledig mogelijk in.
+                </li>
+
+                <li>
+                  <strong>Een geldig identiteitsbewijs.</strong>
+                </li>
+
+                <li>
+                  <strong>Een actueel medicatieoverzicht.</strong>
+                </li>
+
+                <li>
+                  <strong>Een kleine hoeveelheid verse urine.</strong>{" "}
+                  Neem deze mee in een schoon en goed afgesloten potje.
+                </li>
+
+                <li>
+                  <strong>Bril of contactlenzen</strong> indien van
+                  toepassing. Bij contactlenzen bij voorkeur ook de
+                  sterkte.
+                </li>
+
+                <li>
+                  <strong>Relevante medische informatie</strong> wanneer
+                  dit voor de keuring van belang kan zijn.
+                </li>
+              </ul>
+
+              <div className="notice">
+                <strong>Let op:</strong> afhankelijk van het type
+                KNAF-licentie kunnen aanvullende onderzoeken of
+                documenten nodig zijn. Controleer daarom vooraf de eisen
+                die voor uw licentie gelden.
+              </div>
             </div>
+          </details>
 
-            <h3>Neem naar de afspraak mee:</h3>
+          {/* VERZEKERING INKLAPBAAR */}
 
-            <ul>
-              <li>
-                <strong>Het KNAF-keuringsformulier.</strong> Vul uw eigen
-                gedeelte vooraf zo volledig mogelijk in.
-              </li>
-
-              <li>
-                <strong>Een geldig identiteitsbewijs.</strong>
-              </li>
-
-              <li>
-                <strong>Een actueel medicatieoverzicht.</strong>
-              </li>
-
-              <li>
-                <strong>Een kleine hoeveelheid verse urine.</strong> Neem
-                deze mee in een schoon en goed afgesloten potje.
-              </li>
-
-              <li>
-                <strong>Bril of contactlenzen</strong> indien van
-                toepassing. Bij contactlenzen bij voorkeur ook de sterkte.
-              </li>
-
-              <li>
-                <strong>Relevante medische informatie</strong> wanneer dit
-                voor de keuring van belang kan zijn.
-              </li>
-            </ul>
-
-            <div className="notice">
-              <strong>Let op:</strong> afhankelijk van het type
-              KNAF-licentie kunnen aanvullende onderzoeken of documenten
-              nodig zijn. Controleer daarom vooraf de eisen die voor uw
-              licentie gelden.
-            </div>
-          </div>
-
-          {/* VERZEKERING */}
-
-          <div
+          <details
             id="voorbereiding-verzekering"
-            className="card"
+            className="preparationDetails"
           >
-            <div className="cardIcon">V</div>
+            <summary>
+              <div className="preparationSummaryLeft">
+                <div className="cardIcon">V</div>
 
-            <h3>Verzekeringskeuring</h3>
+                <div>
+                  <h3>Verzekeringskeuring</h3>
+                  <p>Bekijk wat u moet meenemen</p>
+                </div>
+              </div>
 
-            <p>
-              Bij een verzekeringskeuring bepaalt de verzekeraar welke
-              informatie en onderzoeken nodig zijn.
-            </p>
+              <span className="preparationPlus">+</span>
+            </summary>
 
-            <ul>
-              <li>
-                <strong>Een geldig identiteitsbewijs.</strong>
-              </li>
+            <div className="preparationContent">
+              <p>
+                Bij een verzekeringskeuring bepaalt de verzekeraar welke
+                informatie en onderzoeken nodig zijn.
+              </p>
 
-              <li>
-                <strong>
-                  Alle formulieren en documenten van uw verzekeraar.
-                </strong>
-              </li>
+              <ul>
+                <li>
+                  <strong>Een geldig identiteitsbewijs.</strong>
+                </li>
 
-              <li>
-                <strong>Een actueel medicatieoverzicht</strong> indien
-                relevant voor de gevraagde keuring.
-              </li>
+                <li>
+                  <strong>
+                    Alle formulieren en documenten van uw verzekeraar.
+                  </strong>
+                </li>
 
-              <li>
-                <strong>Relevante medische informatie</strong> wanneer de
-                verzekeraar hierom vraagt.
-              </li>
-            </ul>
+                <li>
+                  <strong>Een actueel medicatieoverzicht</strong> indien
+                  relevant voor de gevraagde keuring.
+                </li>
 
-            <p>
-              Controleer vooraf goed welke formulieren uw verzekeraar
-              heeft meegestuurd en neem deze mee naar de afspraak.
-            </p>
-          </div>
+                <li>
+                  <strong>Relevante medische informatie</strong> wanneer
+                  de verzekeraar hierom vraagt.
+                </li>
+              </ul>
+
+              <p>
+                Controleer vooraf goed welke formulieren uw verzekeraar
+                heeft meegestuurd en neem deze mee naar de afspraak.
+              </p>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -838,7 +879,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AFSPRAAK NOG NIET BESCHIKBAAR */}
+      {/* AFSPRAAK */}
 
       <section className="section appointment">
         <div className="container appointmentInner">
