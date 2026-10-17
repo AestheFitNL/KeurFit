@@ -1,5 +1,4 @@
 import Image from "next/image";
-import KeurFitBooking from "./components/KeurFitBooking";
 
 export default function Home() {
   return (
@@ -8,11 +7,7 @@ export default function Home() {
 
       <header className="header">
         <div className="container nav">
-          <a
-            href="/"
-            className="brandLogo"
-            aria-label="KeurFit home"
-          >
+          <a href="/" className="brandLogo" aria-label="KeurFit home">
             <Image
               src="/keurfit-logo.png"
               alt="KeurFit Rijbewijskeuringen"
@@ -24,28 +19,11 @@ export default function Home() {
           </a>
 
           <nav>
-            <a href="#rijbewijskeuringen">
-              Rijbewijskeuringen
-            </a>
-
-            <a href="#overige-keuringen">
-              Overige keuringen
-            </a>
-
-            <a href="#werkwijze">
-              Werkwijze
-            </a>
-
-            <a href="#faq">
-              FAQ
-            </a>
-
-            <a
-              href="#afspraak"
-              className="navButton"
-            >
-              Afspraak maken
-            </a>
+            <a href="#rijbewijskeuringen">Rijbewijskeuringen</a>
+            <a href="#overige-keuringen">Overige keuringen</a>
+            <a href="#voorbereiding">Voorbereiding</a>
+            <a href="#tarieven">Tarieven</a>
+            <a href="#faq">FAQ</a>
           </nav>
         </div>
       </header>
@@ -55,9 +33,7 @@ export default function Home() {
       <section className="hero">
         <div className="container heroGrid">
           <div>
-            <p className="eyebrow">
-              RIJBEWIJSKEURING NIJMEGEN
-            </p>
+            <p className="eyebrow">MEDISCHE KEURINGEN NIJMEGEN</p>
 
             <h1>
               Snel en zorgvuldig
@@ -65,24 +41,18 @@ export default function Home() {
             </h1>
 
             <p className="lead">
-              Rijbewijskeuringen en andere medische keuringen door
-              een BIG-geregistreerd arts in Nijmegen. Persoonlijk,
-              duidelijk en eenvoudig online te plannen.
+              Rijbewijskeuringen, sportkeuringen en andere medische
+              keuringen door een BIG-geregistreerd arts in Nijmegen.
+              Persoonlijk, zorgvuldig en duidelijk.
             </p>
 
             <div className="buttons">
-              <a
-                href="#afspraak"
-                className="button"
-              >
-                Afspraak maken
+              <a href="#rijbewijskeuringen" className="button">
+                Bekijk de keuringen
               </a>
 
-              <a
-                href="#rijbewijskeuringen"
-                className="button secondary"
-              >
-                Bekijk de keuringen
+              <a href="#voorbereiding" className="button secondary">
+                Wat moet ik meenemen?
               </a>
             </div>
 
@@ -108,217 +78,203 @@ export default function Home() {
 
       {/* RIJBEWIJSKEURINGEN */}
 
-      <section
-        id="rijbewijskeuringen"
-        className="section"
-      >
+      <section id="rijbewijskeuringen" className="section">
         <div className="container">
-          <p className="eyebrow">
-            RIJBEWIJSKEURINGEN
-          </p>
+          <p className="eyebrow">RIJBEWIJSKEURINGEN</p>
 
           <h2 className="sectionTitle">
             Medische keuringen voor uw rijbewijs
           </h2>
 
           <p className="intro">
-            Bij KeurFit kunt u terecht voor verschillende
+            Bij KeurFit kunt u terecht voor verschillende medische
             rijbewijskeuringen. De verwijzing van het CBR is altijd
-            leidend bij de vraag welk type arts de keuring moet
-            uitvoeren.
+            leidend bij de vraag welk type arts de keuring moet uitvoeren.
           </p>
 
           <div className="cards">
             <article className="card">
-              <div className="cardIcon">
-                75
-              </div>
+              <div className="cardIcon">75</div>
 
-              <h3>
-                75+ rijbewijskeuring
-              </h3>
+              <h3>75+ rijbewijskeuring</h3>
 
               <p>
-                Medische keuring voor het verlengen van uw rijbewijs
-                vanaf 75 jaar.
+                Medische keuring voor het verlengen van uw rijbewijs vanaf
+                75 jaar.
               </p>
 
-              <a href="#afspraak">
-                Plan uw keuring →
+              <strong>15 minuten · €55</strong>
+
+              <br />
+
+              <a href="#voorbereiding-75">
+                Bekijk voorbereiding →
               </a>
             </article>
 
             <article className="card">
-              <div className="cardIcon">
-                M
-              </div>
+              <div className="cardIcon">M</div>
 
-              <h3>
-                Medische rijbewijskeuring tot 75 jaar
-              </h3>
+              <h3>Medische rijbewijskeuring tot 75 jaar</h3>
 
               <p>
-                Voor een CBR-verwijzing waarbij een algemeen keurend
-                arts de medische keuring mag uitvoeren.
+                Voor een CBR-verwijzing waarbij een algemeen keurend arts
+                de medische keuring mag uitvoeren.
               </p>
 
-              <a href="#afspraak">
-                Plan uw keuring →
+              <strong>15 minuten · €55</strong>
+
+              <br />
+
+              <a href="#voorbereiding-tot75">
+                Bekijk voorbereiding →
               </a>
             </article>
 
             <article className="card">
-              <div className="cardIcon">
-                ✓
-              </div>
+              <div className="cardIcon">✓</div>
 
-              <h3>
-                CBR-artsenformulieren
-              </h3>
+              <h3>CBR-artsenformulieren</h3>
 
               <p>
                 Bepaalde medische artsenformulieren kunnen door een
                 algemeen BIG-geregistreerd arts worden ingevuld.
               </p>
 
-              <a href="#afspraak">
-                Meer informatie →
+              <a href="#voorbereiding-tot75">
+                Bekijk wat u nodig heeft →
               </a>
             </article>
           </div>
 
           <div className="notice">
             <strong>Let op:</strong> vraagt het CBR expliciet om een
-            psychiater, neuroloog, oogarts, cardioloog, bedrijfsarts
-            of andere specifieke specialist, dan moet de beoordeling
-            door die arts worden uitgevoerd.
+            psychiater, neuroloog, oogarts, cardioloog, bedrijfsarts of
+            andere specifieke specialist, dan moet de beoordeling door
+            die arts worden uitgevoerd.
           </div>
         </div>
       </section>
 
-     {/* OVERIGE KEURINGEN */}
+      {/* OVERIGE KEURINGEN */}
 
-<section
-  id="overige-keuringen"
-  className="section soft"
->
-  <div className="container">
-    <p className="eyebrow">
-      OVERIGE MEDISCHE KEURINGEN
-    </p>
-
-    <h2 className="sectionTitle">
-      Ook voor andere medische keuringen
-    </h2>
-
-    <p className="intro">
-      Naast rijbewijskeuringen kunt u bij KeurFit terecht voor
-      sport-, KNAF- en verzekeringskeuringen.
-    </p>
-
-    <div className="cards">
-      <article className="card">
-        <div className="cardIcon">
-          S
-        </div>
-
-        <h3>
-          Basis sportkeuring
-        </h3>
-
-        <p>
-          Medische basisbeoordeling voorafgaand aan sport of
-          inspanning.
-        </p>
-
-        <strong>
-          15 minuten · €60 incl. btw
-        </strong>
-
-        <br />
-
-        <a href="#afspraak">
-          Plan uw keuring →
-        </a>
-      </article>
-
-      <article className="card">
-        <div className="cardIcon">
-          K
-        </div>
-
-        <h3>
-          KNAF-keuring
-        </h3>
-
-        <p>
-          Medische keuring voor deelname aan de autosport.
-        </p>
-
-        <strong>
-          15 minuten · €60 incl. btw
-        </strong>
-
-        <br />
-
-        <a href="#afspraak">
-          Plan uw keuring →
-        </a>
-      </article>
-
-      <article className="card">
-        <div className="cardIcon">
-          V
-        </div>
-
-        <h3>
-          Verzekeringskeuring
-        </h3>
-
-        <p>
-          Medische keuring in het kader van een verzekering,
-          afhankelijk van de gevraagde beoordeling.
-        </p>
-
-        <strong>
-          30 minuten
-        </strong>
-
-        <br />
-
-        <a href="#afspraak">
-          Plan uw keuring →
-        </a>
-      </article>
-    </div>
-  </div>
-</section>
-
-      {/* WERKWIJZE */}
-
-      <section
-        id="werkwijze"
-        className="section"
-      >
+      <section id="overige-keuringen" className="section soft">
         <div className="container">
-          <p className="eyebrow">
-            WERKWIJZE
-          </p>
+          <p className="eyebrow">OVERIGE MEDISCHE KEURINGEN</p>
 
           <h2 className="sectionTitle">
-            Een keuring in vier eenvoudige stappen
+            Ook voor andere medische keuringen
           </h2>
+
+          <p className="intro">
+            Naast rijbewijskeuringen kunt u bij KeurFit terecht voor
+            basis sportkeuringen, KNAF-keuringen en
+            verzekeringskeuringen.
+          </p>
+
+          <div className="cards">
+            {/* BASIS SPORTKEURING */}
+
+            <article className="card">
+              <div className="cardIcon">S</div>
+
+              <h3>Basis sportkeuring</h3>
+
+              <p>
+                Medische basisbeoordeling voorafgaand aan sport,
+                sportdeelname of een sportevenement.
+              </p>
+
+              <strong>15 minuten · €60</strong>
+
+              <br />
+
+              <a href="#voorbereiding-sport">
+                Bekijk voorbereiding →
+              </a>
+            </article>
+
+            {/* KNAF */}
+
+            <article className="card">
+              <div className="cardIcon">K</div>
+
+              <h3>KNAF-keuring</h3>
+
+              <p>
+                Medische keuring voor deelname aan de autosport en de
+                aanvraag van een KNAF-licentie.
+              </p>
+
+              <strong>15 minuten · €60</strong>
+
+              <br />
+
+              <a href="#voorbereiding-knaf">
+                Bekijk voorbereiding →
+              </a>
+            </article>
+
+            {/* VERZEKERING */}
+
+            <article className="card">
+              <div className="cardIcon">V</div>
+
+              <h3>Verzekeringskeuring</h3>
+
+              <p>
+                Medische keuring in het kader van een verzekering,
+                afhankelijk van de gevraagde beoordeling.
+              </p>
+
+              <strong>30 minuten</strong>
+
+              <br />
+
+              <a href="#voorbereiding-verzekering">
+                Bekijk voorbereiding →
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* CBR STAPPENPLAN */}
+
+      <section id="voorbereiding" className="section">
+        <div className="container">
+          <p className="eyebrow">RIJBEWIJSKEURING</p>
+
+          <h2 className="sectionTitle">
+            Zo werkt uw rijbewijskeuring
+          </h2>
+
+          <p className="intro">
+            Voor een rijbewijskeuring via het CBR doorloopt u eerst een
+            aantal stappen. Zo voorkomt u dat tijdens de afspraak
+            documenten of gegevens ontbreken.
+          </p>
 
           <div className="steps">
             <div className="step">
               <span>1</span>
 
               <div>
-                <h3>Kies uw keuring</h3>
+                <h3>Vul de Gezondheidsverklaring in</h3>
 
                 <p>
-                  Selecteer de medische keuring die u nodig heeft.
+                  Start via Mijn CBR en vul daar uw Gezondheidsverklaring
+                  in. Het CBR bepaalt vervolgens welke medische
+                  beoordeling nodig is.
                 </p>
+
+                <a
+                  href="https://www.cbr.nl/nl/rijbewijs-houden/nl/gezondheidsverklaring"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Naar informatie over de Gezondheidsverklaring →
+                </a>
               </div>
             </div>
 
@@ -326,10 +282,12 @@ export default function Home() {
               <span>2</span>
 
               <div>
-                <h3>Kies een moment</h3>
+                <h3>Ontvang uw verwijzing</h3>
 
                 <p>
-                  Bekijk direct de beschikbare data en tijden.
+                  Na beoordeling van uw Gezondheidsverklaring ontvangt u
+                  van het CBR informatie over de benodigde keuring en,
+                  indien van toepassing, ZorgDomein-code(s).
                 </p>
               </div>
             </div>
@@ -338,10 +296,12 @@ export default function Home() {
               <span>3</span>
 
               <div>
-                <h3>Kom naar de keuring</h3>
+                <h3>Plan uw afspraak</h3>
 
                 <p>
-                  Neem uw legitimatie en relevante documenten mee.
+                  Vervolgens kunt u een afspraak bij KeurFit plannen.
+                  De online agenda en betaling worden binnenkort aan de
+                  website toegevoegd.
                 </p>
               </div>
             </div>
@@ -350,13 +310,314 @@ export default function Home() {
               <span>4</span>
 
               <div>
-                <h3>Medische beoordeling</h3>
+                <h3>Bereid uw keuring voor</h3>
 
                 <p>
-                  De arts voert de benodigde medische beoordeling uit.
+                  Controleer hieronder wat u voor uw type keuring moet
+                  meenemen. Zo kunnen we de keuring tijdens uw afspraak
+                  zo volledig mogelijk uitvoeren.
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WAT MEENEMEN */}
+
+      <section className="section soft">
+        <div className="container">
+          <p className="eyebrow">GOED VOORBEREID</p>
+
+          <h2 className="sectionTitle">
+            Wat moet u meenemen?
+          </h2>
+
+          <p className="intro">
+            De voorbereiding verschilt per keuring. Bekijk hieronder
+            welke documenten en benodigdheden voor uw afspraak nodig
+            zijn.
+          </p>
+
+          {/* 75+ */}
+
+          <div
+            id="voorbereiding-75"
+            className="card"
+            style={{ marginBottom: "20px" }}
+          >
+            <div className="cardIcon">75</div>
+
+            <h3>75+ rijbewijskeuring</h3>
+
+            <p>
+              Heeft u de Gezondheidsverklaring ingevuld en heeft het CBR
+              u verwezen voor een 75+ keuring? Neem dan het volgende mee:
+            </p>
+
+            <ul>
+              <li>
+                <strong>Geldig identiteitsbewijs:</strong> paspoort,
+                ID-kaart of rijbewijs.
+              </li>
+
+              <li>
+                <strong>ZorgDomein-code van het CBR.</strong> Deze ontvangt
+                u nadat u de Gezondheidsverklaring heeft ingevuld en het
+                CBR uw aanvraag heeft verwerkt.
+              </li>
+
+              <li>
+                <strong>Actueel medicatieoverzicht van de apotheek.</strong>{" "}
+                Neem dit ook mee wanneer u op dit moment geen medicijnen
+                gebruikt.
+              </li>
+
+              <li>
+                <strong>Een kleine hoeveelheid verse urine.</strong> Vang
+                deze maximaal 2 uur vóór uw afspraak op en neem de urine
+                mee in een schoon, goed afgesloten potje.
+              </li>
+
+              <li>
+                <strong>Bril of contactlenzen</strong> wanneer u deze
+                gebruikt. Draagt u contactlenzen? Neem dan ook de sterkte
+                van uw lenzen mee.
+              </li>
+
+              <li>
+                <strong>Relevante medische informatie,</strong> bijvoorbeeld
+                een recente brief van uw behandelend specialist.
+              </li>
+            </ul>
+          </div>
+
+          {/* TOT 75 */}
+
+          <div
+            id="voorbereiding-tot75"
+            className="card"
+            style={{ marginBottom: "20px" }}
+          >
+            <div className="cardIcon">M</div>
+
+            <h3>Medische rijbewijskeuring tot 75 jaar</h3>
+
+            <p>
+              Bent u door het CBR verwezen voor een medische beoordeling?
+              Neem dan het volgende mee:
+            </p>
+
+            <ol>
+              <li>
+                <strong>Geldig identiteitsbewijs.</strong>
+              </li>
+
+              <li>
+                <strong>
+                  CBR-verwijsbrief met alle ZorgDomein-codes
+                </strong>{" "}
+                en eventuele papieren formulieren.
+              </li>
+
+              <li>
+                <strong>Actueel medicatieoverzicht</strong> als u
+                medicijnen gebruikt.
+              </li>
+
+              <li>
+                <strong>Bril of contactlenzen.</strong> Bij contactlenzen
+                neemt u ook de sterkte mee.
+              </li>
+
+              <li>
+                <strong>Relevante medische informatie,</strong> bijvoorbeeld
+                een recente specialistenbrief.
+              </li>
+            </ol>
+
+            <div className="notice">
+              <strong>Controleer uw CBR-verwijzing.</strong> Heeft u
+              meerdere ZorgDomein-codes ontvangen? Neem deze allemaal mee.
+            </div>
+          </div>
+
+          {/* SPORT */}
+
+          <div
+            id="voorbereiding-sport"
+            className="card"
+            style={{ marginBottom: "20px" }}
+          >
+            <div className="cardIcon">S</div>
+
+            <h3>Basis sportkeuring</h3>
+
+            <p>
+              Voor de basis sportkeuring vragen we u vooraf onze
+              gezondheidsverklaring in te vullen. Download het formulier,
+              vul het thuis in en neem het ingevuld mee naar uw afspraak.
+            </p>
+
+            <div className="buttons">
+              <a
+                href="/KeurFit-Gezondheidsverklaring-Sportkeuring.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="button"
+              >
+                Download gezondheidsverklaring
+              </a>
+            </div>
+
+            <h3>Neem daarnaast mee:</h3>
+
+            <ul>
+              <li>
+                <strong>Het volledig ingevulde KeurFit-formulier.</strong>
+              </li>
+
+              <li>
+                <strong>Een geldig identiteitsbewijs.</strong>
+              </li>
+
+              <li>
+                <strong>Een actueel medicatieoverzicht.</strong>
+              </li>
+
+              <li>
+                <strong>Een kleine hoeveelheid verse urine.</strong> Neem
+                deze mee in een schoon en goed afgesloten potje.
+              </li>
+
+              <li>
+                <strong>Bril of contactlenzen</strong> indien van
+                toepassing. Bij contactlenzen bij voorkeur ook de sterkte.
+              </li>
+
+              <li>
+                <strong>Relevante medische informatie,</strong> bijvoorbeeld
+                een recente brief van een behandelend specialist.
+              </li>
+            </ul>
+
+            <p>
+              Heeft de sportbond, organisator of andere instantie een
+              eigen medisch formulier? Neem dit dan ook mee naar de
+              afspraak.
+            </p>
+          </div>
+
+          {/* KNAF */}
+
+          <div
+            id="voorbereiding-knaf"
+            className="card"
+            style={{ marginBottom: "20px" }}
+          >
+            <div className="cardIcon">K</div>
+
+            <h3>KNAF-keuring</h3>
+
+            <p>
+              Voor een KNAF-keuring gebruikt u het officiële
+              KNAF-keuringsformulier. Download het formulier vooraf en
+              vul het gedeelte dat voor de aanvrager/deelnemer bestemd
+              is alvast thuis in.
+            </p>
+
+            <div className="buttons">
+              <a
+                href="https://anyday-alaska-01.ams3.cdn.digitaloceanspaces.com/knaf/media/KNAF/2026/Keuringsformulier-2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="button"
+              >
+                Download KNAF-keuringsformulier 2026
+              </a>
+            </div>
+
+            <h3>Neem naar de afspraak mee:</h3>
+
+            <ul>
+              <li>
+                <strong>Het KNAF-keuringsformulier.</strong> Vul uw eigen
+                gedeelte vooraf zo volledig mogelijk in.
+              </li>
+
+              <li>
+                <strong>Een geldig identiteitsbewijs.</strong>
+              </li>
+
+              <li>
+                <strong>Een actueel medicatieoverzicht.</strong>
+              </li>
+
+              <li>
+                <strong>Een kleine hoeveelheid verse urine.</strong> Neem
+                deze mee in een schoon en goed afgesloten potje.
+              </li>
+
+              <li>
+                <strong>Bril of contactlenzen</strong> indien van
+                toepassing. Bij contactlenzen bij voorkeur ook de sterkte.
+              </li>
+
+              <li>
+                <strong>Relevante medische informatie</strong> wanneer dit
+                voor de keuring van belang kan zijn.
+              </li>
+            </ul>
+
+            <div className="notice">
+              <strong>Let op:</strong> afhankelijk van het type
+              KNAF-licentie kunnen aanvullende onderzoeken of documenten
+              nodig zijn. Controleer daarom vooraf de eisen die voor uw
+              licentie gelden.
+            </div>
+          </div>
+
+          {/* VERZEKERING */}
+
+          <div
+            id="voorbereiding-verzekering"
+            className="card"
+          >
+            <div className="cardIcon">V</div>
+
+            <h3>Verzekeringskeuring</h3>
+
+            <p>
+              Bij een verzekeringskeuring bepaalt de verzekeraar welke
+              informatie en onderzoeken nodig zijn.
+            </p>
+
+            <ul>
+              <li>
+                <strong>Een geldig identiteitsbewijs.</strong>
+              </li>
+
+              <li>
+                <strong>
+                  Alle formulieren en documenten van uw verzekeraar.
+                </strong>
+              </li>
+
+              <li>
+                <strong>Een actueel medicatieoverzicht</strong> indien
+                relevant voor de gevraagde keuring.
+              </li>
+
+              <li>
+                <strong>Relevante medische informatie</strong> wanneer de
+                verzekeraar hierom vraagt.
+              </li>
+            </ul>
+
+            <p>
+              Controleer vooraf goed welke formulieren uw verzekeraar
+              heeft meegestuurd en neem deze mee naar de afspraak.
+            </p>
           </div>
         </div>
       </section>
@@ -365,9 +626,7 @@ export default function Home() {
 
       <section className="section dark">
         <div className="container">
-          <p className="eyebrow light">
-            CBR-KEURING
-          </p>
+          <p className="eyebrow light">CBR-KEURING</p>
 
           <h2 className="sectionTitle">
             Het CBR beslist over uw rijgeschiktheid
@@ -377,107 +636,82 @@ export default function Home() {
             className="intro"
             style={{ color: "#c7d9d1" }}
           >
-            KeurFit verricht de medische beoordeling en rapporteert
-            de relevante bevindingen. Het CBR neemt daarna de
-            uiteindelijke beslissing over uw rijgeschiktheid.
+            KeurFit verricht de medische beoordeling en rapporteert de
+            relevante bevindingen. Het CBR neemt daarna de uiteindelijke
+            beslissing over uw rijgeschiktheid.
           </p>
         </div>
       </section>
 
       {/* TARIEVEN */}
 
-      <section className="section">
+      <section id="tarieven" className="section">
         <div className="container">
-          <p className="eyebrow">
-            TARIEVEN
-          </p>
+          <p className="eyebrow">TARIEVEN</p>
 
           <h2 className="sectionTitle">
             Transparante tarieven
           </h2>
 
-         <p className="intro">
-  Alle vermelde tarieven zijn consumentenprijzen inclusief btw, voor zover btw van toepassing is.
-</p>
+          <p className="intro">
+            Alle vermelde tarieven zijn consumentenprijzen inclusief btw,
+            voor zover btw van toepassing is.
+          </p>
 
           <div className="cards">
             <article className="card priceCard">
-              <p className="smallTitle">
-                RIJBEWIJSKEURING
-              </p>
+              <p className="smallTitle">RIJBEWIJSKEURING</p>
 
-              <h3>
-                75+ rijbewijskeuring
-              </h3>
+              <h3>75+ rijbewijskeuring</h3>
 
-              <p className="price">
-                €55
-              </p>
+              <p className="price">€55</p>
 
               <p>15 minuten</p>
 
-              <a href="#afspraak">
-                Plan uw keuring →
+              <a href="#voorbereiding-75">
+                Bekijk voorbereiding →
               </a>
             </article>
 
             <article className="card priceCard featuredPrice">
-              <p className="smallTitle">
-                RIJBEWIJSKEURING
-              </p>
+              <p className="smallTitle">RIJBEWIJSKEURING</p>
 
-              <h3>
-                Medische keuring tot 75 jaar
-              </h3>
+              <h3>Medische keuring tot 75 jaar</h3>
 
-              <p className="price">
-                €55
-              </p>
+              <p className="price">€55</p>
 
               <p>15 minuten</p>
 
-              <a href="#afspraak">
-                Plan uw keuring →
+              <a href="#voorbereiding-tot75">
+                Bekijk voorbereiding →
               </a>
             </article>
 
             <article className="card priceCard">
-              <p className="smallTitle">
-                SPORT
-              </p>
+              <p className="smallTitle">SPORT</p>
 
-              <h3>
-                Basis sportkeuring
-              </h3>
+              <h3>Basis sportkeuring</h3>
 
-              <p className="price">
-                €60
-              </p>
+              <p className="price">€60</p>
 
               <p>15 minuten</p>
 
-              <a href="#afspraak">
-                Plan uw keuring →
+              <a href="#voorbereiding-sport">
+                Bekijk voorbereiding →
               </a>
             </article>
 
             <article className="card priceCard">
-              <p className="smallTitle">
-                AUTOSPORT
-              </p>
+              <p className="smallTitle">AUTOSPORT</p>
 
-              <h3>
-                KNAF-keuring
-              </h3>
+              <h3>KNAF-keuring</h3>
 
-              <p className="price">
-                €60
-              </p>
+              <p className="price">€60</p>
 
               <p>15 minuten</p>
 
-              <a href="#afspraak">
-                Plan uw keuring →
+              <a href="#voorbereiding-knaf">
+                Bekijk voorbereiding →
               </a>
             </article>
           </div>
@@ -486,14 +720,9 @@ export default function Home() {
 
       {/* FAQ */}
 
-      <section
-        id="faq"
-        className="section soft"
-      >
+      <section id="faq" className="section soft">
         <div className="container">
-          <p className="eyebrow">
-            VEELGESTELDE VRAGEN
-          </p>
+          <p className="eyebrow">VEELGESTELDE VRAGEN</p>
 
           <h2 className="sectionTitle">
             Veelgestelde vragen
@@ -502,13 +731,84 @@ export default function Home() {
           <div className="faq">
             <details>
               <summary>
-                Wat moet ik meenemen naar een rijbewijskeuring?
+                Wat moet ik meenemen naar een 75+ rijbewijskeuring?
               </summary>
 
               <p>
-                Neem uw legitimatiebewijs, CBR-documenten,
-                ZorgDomein-code(s) en indien relevant uw bril,
-                contactlenzen en medicatieoverzicht mee.
+                Neem een geldig identiteitsbewijs, uw ZorgDomein-code,
+                een actueel medicatieoverzicht van de apotheek, een
+                kleine hoeveelheid verse urine van maximaal 2 uur oud,
+                uw bril of gegevens over de sterkte van uw contactlenzen
+                en relevante medische informatie mee. Neem het
+                medicatieoverzicht ook mee wanneer u geen medicijnen
+                gebruikt.
+              </p>
+            </details>
+
+            <details>
+              <summary>
+                Waar krijg ik mijn ZorgDomein-code?
+              </summary>
+
+              <p>
+                U start met het invullen van de Gezondheidsverklaring
+                bij het CBR. Wanneer een medische keuring nodig is,
+                ontvangt u van het CBR de benodigde verwijzing en
+                ZorgDomein-code(s).
+              </p>
+            </details>
+
+            <details>
+              <summary>
+                Wat moet ik meenemen als ik jonger ben dan 75 jaar?
+              </summary>
+
+              <p>
+                Neem een geldig identiteitsbewijs, de volledige
+                CBR-verwijsbrief met alle ZorgDomein-codes en eventuele
+                papieren formulieren mee. Gebruikt u medicijnen? Neem
+                dan ook een actueel medicatieoverzicht mee. Daarnaast
+                neemt u uw bril of contactlenzen, de sterkte van uw
+                lenzen en relevante medische informatie mee.
+              </p>
+            </details>
+
+            <details>
+              <summary>
+                Moet ik urine meenemen?
+              </summary>
+
+              <p>
+                Voor de 75+ rijbewijskeuring vragen we u een kleine
+                hoeveelheid verse urine mee te nemen die maximaal 2 uur
+                vóór de afspraak is opgevangen. Ook voor de basis
+                sportkeuring en KNAF-keuring vragen we u verse urine
+                mee te nemen.
+              </p>
+            </details>
+
+            <details>
+              <summary>
+                Moet ik voor de sportkeuring vooraf een formulier invullen?
+              </summary>
+
+              <p>
+                Ja. Download de KeurFit Gezondheidsverklaring voor de
+                basis sportkeuring, vul deze vooraf volledig in en neem
+                het formulier mee naar uw afspraak.
+              </p>
+            </details>
+
+            <details>
+              <summary>
+                Welk formulier heb ik nodig voor een KNAF-keuring?
+              </summary>
+
+              <p>
+                Gebruik het officiële KNAF-keuringsformulier voor 2026.
+                Download het formulier vooraf en vul het gedeelte voor
+                de aanvrager/deelnemer thuis alvast zo volledig mogelijk
+                in. Neem het formulier vervolgens mee naar de keuring.
               </p>
             </details>
 
@@ -525,41 +825,36 @@ export default function Home() {
 
             <details>
               <summary>
-                Wie beslist of ik rijgeschikt ben?
+                Wie beslist uiteindelijk of ik rijgeschikt ben?
               </summary>
 
               <p>
-                Het CBR neemt uiteindelijk de beslissing over uw
-                rijgeschiktheid.
+                Het CBR neemt de uiteindelijke beslissing over uw
+                rijgeschiktheid. KeurFit voert de medische beoordeling
+                uit en rapporteert de relevante bevindingen.
               </p>
             </details>
           </div>
         </div>
       </section>
 
-      {/* AFSPRAAK MAKEN */}
+      {/* AFSPRAAK NOG NIET BESCHIKBAAR */}
 
-      <section
-        id="afspraak"
-        className="section appointment bookingSection"
-      >
-        <div className="container">
-          <div className="bookingIntro">
-            <p className="eyebrow">
-              AFSPRAAK MAKEN
-            </p>
+      <section className="section appointment">
+        <div className="container appointmentInner">
+          <div>
+            <p className="eyebrow">AFSPRAAK MAKEN</p>
 
-            <h2 className="sectionTitle">
-              Plan uw keuring
+            <h2>
+              Online afspraken binnenkort beschikbaar
             </h2>
 
-            <p className="intro">
-              Kies uw keuring en vervolgens een beschikbaar moment.
-              Uw afspraak wordt direct online ingepland.
+            <p className="intro" style={{ marginBottom: 0 }}>
+              We werken aan een nieuw afsprakensysteem voor KeurFit en
+              AestheFit. Binnenkort kunt u hier direct een afspraak
+              plannen en online betalen.
             </p>
           </div>
-
-          <KeurFitBooking />
         </div>
       </section>
 
@@ -599,11 +894,19 @@ export default function Home() {
             </a>
 
             <a href="#overige-keuringen">
-              Sport- en overige keuringen
+              Overige keuringen
             </a>
 
-            <a href="#afspraak">
-              Afspraak maken
+            <a href="#voorbereiding">
+              Voorbereiding
+            </a>
+
+            <a href="#tarieven">
+              Tarieven
+            </a>
+
+            <a href="#faq">
+              Veelgestelde vragen
             </a>
           </div>
         </div>
@@ -612,13 +915,6 @@ export default function Home() {
           © 2026 KeurFit · onderdeel van AestheFit
         </div>
       </footer>
-
-      <a
-        href="#afspraak"
-        className="mobileAppointment"
-      >
-        Afspraak maken
-      </a>
     </main>
   );
 }
