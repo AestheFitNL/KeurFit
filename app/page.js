@@ -25,6 +25,7 @@ export default function Home() {
             <a href="#voorbereiding">Voorbereiding</a>
             <a href="#tarieven">Tarieven</a>
             <a href="#faq">FAQ</a>
+            <a href="#afspraak">Afspraak maken</a>
           </nav>
         </div>
       </header>
@@ -48,7 +49,11 @@ export default function Home() {
             </p>
 
             <div className="buttons">
-              <a href="#rijbewijskeuringen" className="button">
+              <a href="#afspraak" className="button">
+                Plan hier je afspraak
+              </a>
+
+              <a href="#rijbewijskeuringen" className="button secondary">
                 Bekijk de keuringen
               </a>
 
@@ -111,6 +116,12 @@ export default function Home() {
               <a href="#voorbereiding-75">
                 Bekijk voorbereiding →
               </a>
+
+              <br />
+
+              <a href="#afspraak">
+                Plan afspraak →
+              </a>
             </article>
 
             <article className="card">
@@ -130,6 +141,12 @@ export default function Home() {
               <a href="#voorbereiding-tot75">
                 Bekijk voorbereiding →
               </a>
+
+              <br />
+
+              <a href="#afspraak">
+                Plan afspraak →
+              </a>
             </article>
 
             <article className="card">
@@ -144,6 +161,12 @@ export default function Home() {
 
               <a href="#voorbereiding-tot75">
                 Bekijk wat u nodig heeft →
+              </a>
+
+              <br />
+
+              <a href="#afspraak">
+                Plan afspraak →
               </a>
             </article>
           </div>
@@ -191,6 +214,12 @@ export default function Home() {
               <a href="#voorbereiding-sport">
                 Bekijk voorbereiding →
               </a>
+
+              <br />
+
+              <a href="#afspraak">
+                Plan afspraak →
+              </a>
             </article>
 
             <article className="card">
@@ -210,6 +239,12 @@ export default function Home() {
               <a href="#voorbereiding-knaf">
                 Bekijk voorbereiding →
               </a>
+
+              <br />
+
+              <a href="#afspraak">
+                Plan afspraak →
+              </a>
             </article>
 
             <article className="card">
@@ -228,6 +263,12 @@ export default function Home() {
 
               <a href="#voorbereiding-verzekering">
                 Bekijk voorbereiding →
+              </a>
+
+              <br />
+
+              <a href="#afspraak">
+                Plan afspraak →
               </a>
             </article>
           </div>
@@ -294,10 +335,13 @@ export default function Home() {
                 <h3>Plan uw afspraak</h3>
 
                 <p>
-                  Vervolgens kunt u een afspraak bij KeurFit plannen.
-                  De online agenda en betaling worden binnenkort aan de
-                  website toegevoegd.
+                  Heeft u uw verwijzing ontvangen? Kies dan online een
+                  geschikt moment voor uw keuring bij KeurFit.
                 </p>
+
+                <a href="#afspraak">
+                  Plan hier uw afspraak →
+                </a>
               </div>
             </div>
 
@@ -384,6 +428,12 @@ export default function Home() {
                 een recente brief van uw behandelend specialist.
               </li>
             </ul>
+
+            <div className="buttons" style={{ marginTop: "22px" }}>
+              <a href="#afspraak" className="button">
+                Plan hier je afspraak
+              </a>
+            </div>
           </div>
 
           {/* TOT 75 INKLAPBAAR */}
@@ -443,6 +493,12 @@ export default function Home() {
                 <strong>Controleer uw CBR-verwijzing.</strong> Heeft u
                 meerdere ZorgDomein-codes ontvangen? Neem deze allemaal
                 mee.
+              </div>
+
+              <div className="buttons" style={{ marginTop: "22px" }}>
+                <a href="#afspraak" className="button">
+                  Plan hier je afspraak
+                </a>
               </div>
             </div>
           </details>
@@ -525,6 +581,12 @@ export default function Home() {
                 eigen medisch formulier? Neem dit dan ook mee naar de
                 afspraak.
               </p>
+
+              <div className="buttons" style={{ marginTop: "22px" }}>
+                <a href="#afspraak" className="button">
+                  Plan hier je afspraak
+                </a>
+              </div>
             </div>
           </details>
 
@@ -605,6 +667,12 @@ export default function Home() {
                 documenten nodig zijn. Controleer daarom vooraf de eisen
                 die voor uw licentie gelden.
               </div>
+
+              <div className="buttons" style={{ marginTop: "22px" }}>
+                <a href="#afspraak" className="button">
+                  Plan hier je afspraak
+                </a>
+              </div>
             </div>
           </details>
 
@@ -659,6 +727,12 @@ export default function Home() {
                 Controleer vooraf goed welke formulieren uw verzekeraar
                 heeft meegestuurd en neem deze mee naar de afspraak.
               </p>
+
+              <div className="buttons" style={{ marginTop: "22px" }}>
+                <a href="#afspraak" className="button">
+                  Plan hier je afspraak
+                </a>
+              </div>
             </div>
           </details>
         </div>
@@ -713,6 +787,12 @@ export default function Home() {
               <a href="#voorbereiding-75">
                 Bekijk voorbereiding →
               </a>
+
+              <br />
+
+              <a href="#afspraak">
+                Plan afspraak →
+              </a>
             </article>
 
             <article className="card priceCard featuredPrice">
@@ -726,6 +806,12 @@ export default function Home() {
 
               <a href="#voorbereiding-tot75">
                 Bekijk voorbereiding →
+              </a>
+
+              <br />
+
+              <a href="#afspraak">
+                Plan afspraak →
               </a>
             </article>
 
@@ -741,6 +827,12 @@ export default function Home() {
               <a href="#voorbereiding-sport">
                 Bekijk voorbereiding →
               </a>
+
+              <br />
+
+              <a href="#afspraak">
+                Plan afspraak →
+              </a>
             </article>
 
             <article className="card priceCard">
@@ -755,7 +847,19 @@ export default function Home() {
               <a href="#voorbereiding-knaf">
                 Bekijk voorbereiding →
               </a>
+
+              <br />
+
+              <a href="#afspraak">
+                Plan afspraak →
+              </a>
             </article>
+          </div>
+
+          <div className="buttons" style={{ marginTop: "32px" }}>
+            <a href="#afspraak" className="button">
+              Plan hier je afspraak
+            </a>
           </div>
         </div>
       </section>
@@ -880,26 +984,26 @@ export default function Home() {
         </div>
       </section>
 
-    {/* AFSPRAAK MAKEN */}
+      {/* AFSPRAAK MAKEN */}
 
-<section id="afspraak" className="section appointment">
-  <div className="container">
-    <p className="eyebrow">AFSPRAAK MAKEN</p>
+      <section id="afspraak" className="section appointment">
+        <div className="container">
+          <p className="eyebrow">AFSPRAAK MAKEN</p>
 
-    <h2 className="sectionTitle">
-      Plan uw afspraak bij KeurFit
-    </h2>
+          <h2 className="sectionTitle">
+            Plan uw afspraak bij KeurFit
+          </h2>
 
-    <p className="intro">
-      Kies hieronder de gewenste keuring en een beschikbaar moment.
-      U kunt uw afspraak direct online plannen.
-    </p>
+          <p className="intro">
+            Kies hieronder de gewenste keuring en een beschikbaar moment.
+            U kunt uw afspraak direct online plannen.
+          </p>
 
-    <div className="bookingCard">
-      <SimplyBookWidget />
-    </div>
-  </div>
-</section>
+          <div className="bookingCard">
+            <SimplyBookWidget />
+          </div>
+        </div>
+      </section>
 
       {/* FOOTER */}
 
@@ -956,6 +1060,10 @@ export default function Home() {
 
             <a href="#faq">
               Veelgestelde vragen
+            </a>
+
+            <a href="#afspraak">
+              Afspraak maken
             </a>
           </div>
 
