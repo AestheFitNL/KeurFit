@@ -880,25 +880,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AFSPRAAK */}
+    {/* AFSPRAAK MAKEN */}
 
-      <section className="section appointment">
-        <div className="container appointmentInner">
-          <div>
-            <p className="eyebrow">AFSPRAAK MAKEN</p>
+<section id="afspraak" className="section appointment">
+  <div className="container">
+    <p className="eyebrow">AFSPRAAK MAKEN</p>
 
-            <h2>
-              Online afspraken binnenkort beschikbaar
-            </h2>
+    <h2 className="sectionTitle">
+      Plan uw afspraak bij KeurFit
+    </h2>
 
-            <p className="intro" style={{ marginBottom: 0 }}>
-              We werken aan een nieuw afsprakensysteem voor KeurFit en
-              AestheFit. Binnenkort kunt u hier direct een afspraak
-              plannen en online betalen.
-            </p>
-          </div>
-        </div>
-      </section>
+    <p className="intro">
+      Kies hieronder de gewenste keuring en een beschikbaar moment.
+      U kunt uw afspraak direct online plannen.
+    </p>
+
+    <div className="bookingCard">
+      <SimplyBookWidget />
+    </div>
+  </div>
+</section>
 
       {/* FOOTER */}
 
