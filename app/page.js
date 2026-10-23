@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SimplyBookWidget from "@/components/SimplyBookWidget";
 
 export default function Home() {
   return (
