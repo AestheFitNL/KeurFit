@@ -1281,3 +1281,40 @@ footer {
     margin-top: 30px;
   }
 }
+
+/* =========================================
+   SIMPLYBOOK
+   ========================================= */
+
+.bookingCard {
+  margin-top: 35px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 20px;
+  box-shadow: 0 12px 40px rgba(18, 60, 49, 0.06);
+  overflow: hidden;
+}
+
+.simplyBookWidget {
+  width: 100%;
+  min-height: 750px;
+}
+
+.simplyBookWidget iframe {
+  width: 100% !important;
+  min-height: 750px !important;
+  border: 0 !important;
+}
+
+@media (max-width: 700px) {
+  .bookingCard {
+    padding: 8px;
+    border-radius: 16px;
+  }
+
+  .simplyBookWidget,
+  .simplyBookWidget iframe {
+    min-height: 850px !important;
+  }
+}
