@@ -1,6 +1,16 @@
 import Image from "next/image";
 import SimplyBookWidget from "./components/SimplyBookWidget";
 
+// Vul hier je zakelijke WhatsApp-nummer in, inclusief landcode en zonder + of spaties.
+// Voorbeeldformaat: 31612345678. Laat leeg totdat je het nummer hebt ingevuld.
+const WHATSAPP_NUMBER = "";
+const SPOED_BERICHT = encodeURIComponent(
+  "Hallo KeurFit, ik wil graag een spoedkeuring aanvragen. Type keuring (geen combikeuring): ... Gewenste datum: ... Aantal ZorgDomein-codes (indien van toepassing): ..."
+);
+const SPOED_LINK = WHATSAPP_NUMBER
+  ? `https://wa.me/${WHATSAPP_NUMBER}?text=${SPOED_BERICHT}`
+  : null;
+
 export default function Home() {
   return (
     <main>
@@ -25,6 +35,7 @@ export default function Home() {
             <a href="#voorbereiding">Voorbereiding</a>
             <a href="#tarieven">Tarieven</a>
             <a href="#faq">FAQ</a>
+            <a href="#spoedkeuring">Spoedkeuring</a>
             <a href="#afspraak">Afspraak maken</a>
           </nav>
         </div>
@@ -50,9 +61,8 @@ export default function Home() {
 
             <div className="buttons">
               <a href="#afspraak" className="button">
-                Plan hier je afspraak
+                Plan hier uw afspraak
               </a>
-
               <a href="#rijbewijskeuringen" className="button secondary">
                 Bekijk de keuringen
               </a>
@@ -109,19 +119,29 @@ export default function Home() {
                 75 jaar.
               </p>
 
-              <strong>15 minuten · €55</strong>
+              <strong>15 minuten · €55 (1–2 ZorgDomein-codes)</strong>
+              <p><strong>Heeft u 3 of meer ZorgDomein-codes?</strong> Boek dan de combikeuring van €75 (20 minuten).</p>
 
               <br />
 
               <a href="#voorbereiding-75">
                 Bekijk voorbereiding →
               </a>
+              <div className="buttons" style={{ marginTop: "20px" }}>
+                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+              </div>
+            </article>
 
-              <br />
-
-              <a href="#afspraak">
-                Plan afspraak →
-              </a>
+            <article className="card">
+              <div className="cardIcon">3+</div>
+              <h3>Combi-rijbewijskeuring 75+</h3>
+              <p>Voor 75-plussers die van het CBR drie of meer ZorgDomein-codes hebben ontvangen.</p>
+              <strong>20 minuten · €75</strong>
+              <p>Boek deze combikeuring in plaats van de standaard 75+-keuring.</p>
+              <a href="#voorbereiding-75">Bekijk voorbereiding →</a>
+              <div className="buttons" style={{ marginTop: "20px" }}>
+                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+              </div>
             </article>
 
             <article className="card">
@@ -141,12 +161,9 @@ export default function Home() {
               <a href="#voorbereiding-tot75">
                 Bekijk voorbereiding →
               </a>
-
-              <br />
-
-              <a href="#afspraak">
-                Plan afspraak →
-              </a>
+              <div className="buttons" style={{ marginTop: "20px" }}>
+                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+              </div>
             </article>
 
             <article className="card">
@@ -162,12 +179,9 @@ export default function Home() {
               <a href="#voorbereiding-tot75">
                 Bekijk wat u nodig heeft →
               </a>
-
-              <br />
-
-              <a href="#afspraak">
-                Plan afspraak →
-              </a>
+              <div className="buttons" style={{ marginTop: "20px" }}>
+                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+              </div>
             </article>
           </div>
 
@@ -214,12 +228,9 @@ export default function Home() {
               <a href="#voorbereiding-sport">
                 Bekijk voorbereiding →
               </a>
-
-              <br />
-
-              <a href="#afspraak">
-                Plan afspraak →
-              </a>
+              <div className="buttons" style={{ marginTop: "20px" }}>
+                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+              </div>
             </article>
 
             <article className="card">
@@ -239,12 +250,9 @@ export default function Home() {
               <a href="#voorbereiding-knaf">
                 Bekijk voorbereiding →
               </a>
-
-              <br />
-
-              <a href="#afspraak">
-                Plan afspraak →
-              </a>
+              <div className="buttons" style={{ marginTop: "20px" }}>
+                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+              </div>
             </article>
 
             <article className="card">
@@ -264,12 +272,9 @@ export default function Home() {
               <a href="#voorbereiding-verzekering">
                 Bekijk voorbereiding →
               </a>
-
-              <br />
-
-              <a href="#afspraak">
-                Plan afspraak →
-              </a>
+              <div className="buttons" style={{ marginTop: "20px" }}>
+                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+              </div>
             </article>
           </div>
         </div>
@@ -335,13 +340,9 @@ export default function Home() {
                 <h3>Plan uw afspraak</h3>
 
                 <p>
-                  Heeft u uw verwijzing ontvangen? Kies dan online een
-                  geschikt moment voor uw keuring bij KeurFit.
+                  Vervolgens kunt u een afspraak bij KeurFit plannen.
+                  Kies direct online een beschikbaar moment in onze agenda.
                 </p>
-
-                <a href="#afspraak">
-                  Plan hier uw afspraak →
-                </a>
               </div>
             </div>
 
@@ -400,7 +401,7 @@ export default function Home() {
               </li>
 
               <li>
-                <strong>ZorgDomein-code van het CBR.</strong> Deze ontvangt
+                <strong>Alle ZorgDomein-codes van het CBR.</strong> Deze ontvangt
                 u nadat u de Gezondheidsverklaring heeft ingevuld en het
                 CBR uw aanvraag heeft verwerkt.
               </li>
@@ -428,11 +429,13 @@ export default function Home() {
                 een recente brief van uw behandelend specialist.
               </li>
             </ul>
-
-            <div className="buttons" style={{ marginTop: "22px" }}>
-              <a href="#afspraak" className="button">
-                Plan hier je afspraak
-              </a>
+            <div className="notice">
+              <strong>Belangrijk bij 3 of meer ZorgDomein-codes:</strong> boek de
+              <strong> combi-rijbewijskeuring 75+</strong> (€75, 20 minuten) en
+              niet de standaard 75+-keuring (€55, 15 minuten).
+            </div>
+            <div className="buttons" style={{ marginTop: "20px" }}>
+              <a href="#afspraak" className="button">Plan hier uw afspraak</a>
             </div>
           </div>
 
@@ -493,12 +496,6 @@ export default function Home() {
                 <strong>Controleer uw CBR-verwijzing.</strong> Heeft u
                 meerdere ZorgDomein-codes ontvangen? Neem deze allemaal
                 mee.
-              </div>
-
-              <div className="buttons" style={{ marginTop: "22px" }}>
-                <a href="#afspraak" className="button">
-                  Plan hier je afspraak
-                </a>
               </div>
             </div>
           </details>
@@ -581,12 +578,6 @@ export default function Home() {
                 eigen medisch formulier? Neem dit dan ook mee naar de
                 afspraak.
               </p>
-
-              <div className="buttons" style={{ marginTop: "22px" }}>
-                <a href="#afspraak" className="button">
-                  Plan hier je afspraak
-                </a>
-              </div>
             </div>
           </details>
 
@@ -667,12 +658,6 @@ export default function Home() {
                 documenten nodig zijn. Controleer daarom vooraf de eisen
                 die voor uw licentie gelden.
               </div>
-
-              <div className="buttons" style={{ marginTop: "22px" }}>
-                <a href="#afspraak" className="button">
-                  Plan hier je afspraak
-                </a>
-              </div>
             </div>
           </details>
 
@@ -727,12 +712,6 @@ export default function Home() {
                 Controleer vooraf goed welke formulieren uw verzekeraar
                 heeft meegestuurd en neem deze mee naar de afspraak.
               </p>
-
-              <div className="buttons" style={{ marginTop: "22px" }}>
-                <a href="#afspraak" className="button">
-                  Plan hier je afspraak
-                </a>
-              </div>
             </div>
           </details>
         </div>
@@ -759,6 +738,45 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SPOEDKEURINGEN */}
+      <section id="spoedkeuring" className="section soft">
+        <div className="container">
+          <p className="eyebrow">SPOEDKEURINGEN</p>
+          <h2 className="sectionTitle">Nog vandaag medisch gekeurd?</h2>
+          <p className="intro">
+            Heeft u met spoed een medische keuring nodig? Een afspraak op
+            dezelfde dag is soms mogelijk, ook in de avonduren. Dit gaat
+            uitsluitend op aanvraag en is afhankelijk van beschikbaarheid.
+          </p>
+          <div className="card" style={{ maxWidth: "780px" }}>
+            <h3>Spoedkeuring op dezelfde dag</h3>
+            <p><strong>Voorgestelde spoedtoeslag: €25</strong> bovenop het reguliere tarief, voor zover toegestaan volgens de toepasselijke tariefregels. Spoed is niet beschikbaar voor de combi-rijbewijskeuring 75+.</p>
+            <ul>
+              <li>Standaard rijbewijskeuring 75+: vanaf €80</li>
+              <li>Basis sportkeuring of KNAF-keuring: vanaf €85</li>
+            </ul>
+            <p>
+              Stuur via WhatsApp het type keuring, de gewenste datum en,
+              bij een CBR-keuring, het aantal ZorgDomein-codes. Voor drie of meer codes is uitsluitend de reguliere combikeuring beschikbaar. Wij laten
+              weten of een afspraak mogelijk is en bevestigen vooraf het tarief.
+            </p>
+            {SPOED_LINK ? (
+              <div className="buttons" style={{ marginTop: "20px" }}>
+                <a href={SPOED_LINK} className="button" target="_blank" rel="noopener noreferrer">
+                  Vraag een spoedkeuring aan via WhatsApp
+                </a>
+              </div>
+            ) : (
+              <p><strong>WhatsApp-aanvragen:</strong> het zakelijke nummer wordt binnenkort toegevoegd.</p>
+            )}
+            <p style={{ marginTop: "16px", fontSize: "0.9rem" }}>
+              Een afspraak is pas definitief na onze bevestiging. Een spoedkeuring
+              versnelt niet automatisch de besluitvorming door het CBR.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* TARIEVEN */}
 
       <section id="tarieven" className="section">
@@ -782,17 +800,25 @@ export default function Home() {
 
               <p className="price">€55</p>
 
-              <p>15 minuten</p>
+              <p>15 minuten · 1–2 ZorgDomein-codes</p>
 
               <a href="#voorbereiding-75">
                 Bekijk voorbereiding →
               </a>
+              <div className="buttons" style={{ marginTop: "20px" }}>
+                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+              </div>
+            </article>
 
-              <br />
-
-              <a href="#afspraak">
-                Plan afspraak →
-              </a>
+            <article className="card priceCard">
+              <p className="smallTitle">COMBI-RIJBEWIJSKEURING 75+</p>
+              <h3>3 of meer ZorgDomein-codes</h3>
+              <p className="price">€75</p>
+              <p>20 minuten</p>
+              <a href="#voorbereiding-75">Bekijk voorbereiding →</a>
+              <div className="buttons" style={{ marginTop: "20px" }}>
+                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+              </div>
             </article>
 
             <article className="card priceCard featuredPrice">
@@ -807,12 +833,9 @@ export default function Home() {
               <a href="#voorbereiding-tot75">
                 Bekijk voorbereiding →
               </a>
-
-              <br />
-
-              <a href="#afspraak">
-                Plan afspraak →
-              </a>
+              <div className="buttons" style={{ marginTop: "20px" }}>
+                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+              </div>
             </article>
 
             <article className="card priceCard">
@@ -827,12 +850,9 @@ export default function Home() {
               <a href="#voorbereiding-sport">
                 Bekijk voorbereiding →
               </a>
-
-              <br />
-
-              <a href="#afspraak">
-                Plan afspraak →
-              </a>
+              <div className="buttons" style={{ marginTop: "20px" }}>
+                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+              </div>
             </article>
 
             <article className="card priceCard">
@@ -847,19 +867,13 @@ export default function Home() {
               <a href="#voorbereiding-knaf">
                 Bekijk voorbereiding →
               </a>
-
-              <br />
-
-              <a href="#afspraak">
-                Plan afspraak →
-              </a>
+              <div className="buttons" style={{ marginTop: "20px" }}>
+                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+              </div>
             </article>
           </div>
-
-          <div className="buttons" style={{ marginTop: "32px" }}>
-            <a href="#afspraak" className="button">
-              Plan hier je afspraak
-            </a>
+          <div className="buttons" style={{ marginTop: "30px" }}>
+            <a href="#afspraak" className="button">Plan hier uw afspraak</a>
           </div>
         </div>
       </section>
@@ -881,13 +895,22 @@ export default function Home() {
               </summary>
 
               <p>
-                Neem een geldig identiteitsbewijs, uw ZorgDomein-code,
+                Neem een geldig identiteitsbewijs, al uw ZorgDomein-codes,
                 een actueel medicatieoverzicht van de apotheek, een
                 kleine hoeveelheid verse urine van maximaal 2 uur oud,
                 uw bril of gegevens over de sterkte van uw contactlenzen
                 en relevante medische informatie mee. Neem het
                 medicatieoverzicht ook mee wanneer u geen medicijnen
                 gebruikt.
+              </p>
+            </details>
+
+            <details>
+              <summary>Wat als ik 3 of meer ZorgDomein-codes heb?</summary>
+              <p>
+                Boek dan de combi-rijbewijskeuring 75+ van €75 (20 minuten)
+                in plaats van de standaard 75+-keuring van €55 (15 minuten).
+                Neem alle ontvangen ZorgDomein-codes mee.
               </p>
             </details>
 
@@ -984,26 +1007,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AFSPRAAK MAKEN */}
+    {/* AFSPRAAK MAKEN */}
 
-      <section id="afspraak" className="section appointment">
-        <div className="container">
-          <p className="eyebrow">AFSPRAAK MAKEN</p>
+<section id="afspraak" className="section appointment">
+  <div className="container">
+    <p className="eyebrow">AFSPRAAK MAKEN</p>
 
-          <h2 className="sectionTitle">
-            Plan uw afspraak bij KeurFit
-          </h2>
+    <h2 className="sectionTitle">
+      Plan uw afspraak bij KeurFit
+    </h2>
 
-          <p className="intro">
-            Kies hieronder de gewenste keuring en een beschikbaar moment.
-            U kunt uw afspraak direct online plannen.
-          </p>
+    <p className="intro">
+      Kies hieronder de gewenste keuring en een beschikbaar moment.
+      U kunt uw afspraak direct online plannen.
+    </p>
 
-          <div className="bookingCard">
-            <SimplyBookWidget />
-          </div>
-        </div>
-      </section>
+    <div className="bookingCard">
+      <SimplyBookWidget />
+    </div>
+  </div>
+</section>
 
       {/* FOOTER */}
 
@@ -1061,10 +1084,8 @@ export default function Home() {
             <a href="#faq">
               Veelgestelde vragen
             </a>
-
-            <a href="#afspraak">
-              Afspraak maken
-            </a>
+            <a href="#spoedkeuring">Spoedkeuringen</a>
+            <a href="#afspraak">Afspraak maken</a>
           </div>
 
           {/* INFORMATIE */}
