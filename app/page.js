@@ -750,7 +750,6 @@ export default function Home() {
           </p>
           <div className="card" style={{ maxWidth: "780px" }}>
             <h3>Spoedkeuring op dezelfde dag</h3>
-            <p><strong>Voorgestelde spoedtoeslag: €25</strong> bovenop het reguliere tarief, voor zover toegestaan volgens de toepasselijke tariefregels. Spoed is niet beschikbaar voor de combi-rijbewijskeuring 75+.</p>
             <ul>
               <li>Standaard rijbewijskeuring 75+: vanaf €80</li>
               <li>Basis sportkeuring of KNAF-keuring: vanaf €85</li>
