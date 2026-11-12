@@ -119,7 +119,7 @@ export default function Home() {
                 75 jaar.
               </p>
 
-              <strong>15 minuten · €55 (1–2 ZorgDomein-codes)</strong>
+              <strong>15 minuten · €55 </strong>
               <p><strong>Heeft u 3 of meer ZorgDomein-codes?</strong> Boek dan de combikeuring van €75 (20 minuten).</p>
 
               <br />
@@ -164,25 +164,7 @@ export default function Home() {
               <div className="buttons" style={{ marginTop: "20px" }}>
                 <a href="#afspraak" className="button">Plan hier uw afspraak</a>
               </div>
-            </article>
-
-            <article className="card">
-              <div className="cardIcon">✓</div>
-
-              <h3>CBR-artsenformulieren</h3>
-
-              <p>
-                Bepaalde medische artsenformulieren kunnen door een
-                algemeen BIG-geregistreerd arts worden ingevuld.
-              </p>
-
-              <a href="#voorbereiding-tot75">
-                Bekijk wat u nodig heeft →
-              </a>
-              <div className="buttons" style={{ marginTop: "20px" }}>
-                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
-              </div>
-            </article>
+            
           </div>
 
           <div className="notice">
@@ -429,11 +411,6 @@ export default function Home() {
                 een recente brief van uw behandelend specialist.
               </li>
             </ul>
-            <div className="notice">
-              <strong>Belangrijk bij 3 of meer ZorgDomein-codes:</strong> boek de
-              <strong> combi-rijbewijskeuring 75+</strong> (€75, 20 minuten) en
-              niet de standaard 75+-keuring (€55, 15 minuten).
-            </div>
             <div className="buttons" style={{ marginTop: "20px" }}>
               <a href="#afspraak" className="button">Plan hier uw afspraak</a>
             </div>
