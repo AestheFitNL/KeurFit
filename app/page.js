@@ -1,6 +1,48 @@
 import Image from "next/image";
 import SimplyBookWidget from "./components/SimplyBookWidget";
 
+// SEO-metadata voor de homepage (Next.js App Router, servercomponent).
+export const metadata = {
+  metadataBase: new URL("https://keurfit.nl"),
+  title: "Rijbewijskeuring Nijmegen | 75+ & CBR-keuring | KeurFit",
+  description: "Rijbewijskeuring in Nijmegen vanaf €55. KeurFit verzorgt 75+ keuringen, CBR-keuringen, sport- en KNAF-keuringen. Bekijk tarieven en boek online.",
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: "website",
+    locale: "nl_NL",
+    siteName: "KeurFit",
+    title: "Rijbewijskeuring Nijmegen | KeurFit",
+    description: "Rijbewijskeuring 75+, medische CBR-keuring, sportkeuring en KNAF-keuring in Nijmegen. Plan online uw afspraak.",
+    url: "https://keurfit.nl/",
+    images: [{ url: "/keurfit-logo.png", alt: "KeurFit medische keuringen Nijmegen" }],
+  },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "@id": "https://keurfit.nl/#organisatie",
+  name: "KeurFit",
+  url: "https://keurfit.nl/",
+  logo: "https://keurfit.nl/keurfit-logo.png",
+  description: "Rijbewijskeuringen 75+, CBR-keuringen, sportkeuringen en KNAF-keuringen in Nijmegen.",
+  address: { "@type": "PostalAddress", addressLocality: "Nijmegen", addressCountry: "NL" },
+  areaServed: { "@type": "City", name: "Nijmegen" },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Medische keuringen",
+    itemListElement: [
+      { "@type": "Offer", name: "Rijbewijskeuring 75+", price: "55", priceCurrency: "EUR" },
+      { "@type": "Offer", name: "Combi-rijbewijskeuring 75+", price: "75", priceCurrency: "EUR" },
+      { "@type": "Offer", name: "Medische rijbewijskeuring tot 75 jaar", price: "55", priceCurrency: "EUR" },
+      { "@type": "Offer", name: "Basis sportkeuring", price: "60", priceCurrency: "EUR" },
+      { "@type": "Offer", name: "KNAF-keuring", price: "60", priceCurrency: "EUR" },
+    ],
+  },
+};
+
+
 // Vul hier je zakelijke WhatsApp-nummer in, inclusief landcode en zonder + of spaties.
 // Voorbeeldformaat: 31612345678. Laat leeg totdat je het nummer hebt ingevuld.
 const WHATSAPP_NUMBER = "";
@@ -14,6 +56,7 @@ const SPOED_LINK = WHATSAPP_NUMBER
 export default function Home() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       {/* HEADER */}
 
       <header className="header">
@@ -49,14 +92,15 @@ export default function Home() {
             <p className="eyebrow">MEDISCHE KEURINGEN NIJMEGEN</p>
 
             <h1>
-              Snel en zorgvuldig
-              <span>medisch gekeurd.</span>
+              Rijbewijskeuring Nijmegen
+              <span>zorgvuldig en persoonlijk gekeurd.</span>
             </h1>
 
             <p className="lead">
-              Rijbewijskeuringen, sportkeuringen en andere medische
-              keuringen door een BIG-geregistreerd arts in Nijmegen.
-              Persoonlijk, zorgvuldig en duidelijk.
+              Bij KeurFit in Nijmegen kunt u terecht voor een rijbewijskeuring 75+,
+              een medische CBR-keuring, sportkeuring of KNAF-keuring.
+              Een BIG-geregistreerd arts voert de keuring zorgvuldig uit.
+              Bekijk de kosten en plan direct online uw afspraak.
             </p>
 
             <div className="buttons">
@@ -99,13 +143,14 @@ export default function Home() {
           <p className="eyebrow">RIJBEWIJSKEURINGEN</p>
 
           <h2 className="sectionTitle">
-            Medische keuringen voor uw rijbewijs
+            Rijbewijskeuring in Nijmegen: 75+, CBR en medische keuringen
           </h2>
 
           <p className="intro">
-            Bij KeurFit kunt u terecht voor verschillende medische
-            rijbewijskeuringen. De verwijzing van het CBR is altijd
-            leidend bij de vraag welk type arts de keuring moet uitvoeren.
+            Zoekt u een rijbewijskeuring in Nijmegen? KeurFit verzorgt onder meer
+            de rijbewijskeuring voor 75-plussers en medische CBR-keuringen
+            voor bestuurders jonger dan 75 jaar. U kunt eenvoudig online boeken.
+            De verwijzing van het CBR bepaalt welk type arts uw keuring mag uitvoeren.
           </p>
 
           <div className="cards">
@@ -115,8 +160,8 @@ export default function Home() {
               <h3>75+ rijbewijskeuring</h3>
 
               <p>
-                Medische keuring voor het verlengen van uw rijbewijs vanaf
-                75 jaar.
+                Moet u uw rijbewijs verlengen vanaf 75 jaar? Boek uw
+                rijbewijskeuring 75+ in Nijmegen bij KeurFit.
               </p>
 
               <strong>15 minuten · €55 </strong>
@@ -135,7 +180,7 @@ export default function Home() {
             <article className="card">
               <div className="cardIcon">3+</div>
               <h3>Combi-rijbewijskeuring 75+</h3>
-              <p>Voor 75-plussers die van het CBR drie of meer ZorgDomein-codes hebben ontvangen.</p>
+              <p>Heeft u voor uw rijbewijskeuring 75+ drie of meer ZorgDomein-codes van het CBR ontvangen? Kies dan deze combikeuring.</p>
               <strong>20 minuten · €75</strong>
               <p>Boek deze combikeuring in plaats van de standaard 75+-keuring.</p>
               <a href="#voorbereiding-75">Bekijk voorbereiding →</a>
@@ -150,8 +195,8 @@ export default function Home() {
               <h3>Medische rijbewijskeuring tot 75 jaar</h3>
 
               <p>
-                Voor een CBR-verwijzing waarbij een algemeen keurend arts
-                de medische keuring mag uitvoeren.
+                Medische rijbewijskeuring in Nijmegen voor bestuurders jonger dan 75 jaar
+                met een CBR-verwijzing voor een algemeen keurend arts.
               </p>
 
               <strong>15 minuten · €55</strong>
@@ -164,7 +209,7 @@ export default function Home() {
               <div className="buttons" style={{ marginTop: "20px" }}>
                 <a href="#afspraak" className="button">Plan hier uw afspraak</a>
               </div>
-            
+            </article>
           </div>
 
           <div className="notice">
@@ -183,7 +228,7 @@ export default function Home() {
           <p className="eyebrow">OVERIGE MEDISCHE KEURINGEN</p>
 
           <h2 className="sectionTitle">
-            Ook voor andere medische keuringen
+            Sportkeuring, KNAF-keuring en verzekeringskeuring in Nijmegen
           </h2>
 
           <p className="intro">
@@ -719,7 +764,7 @@ export default function Home() {
       <section id="spoedkeuring" className="section soft">
         <div className="container">
           <p className="eyebrow">SPOEDKEURINGEN</p>
-          <h2 className="sectionTitle">Nog vandaag medisch gekeurd?</h2>
+          <h2 className="sectionTitle">Spoedkeuring in Nijmegen: soms nog dezelfde dag</h2>
           <p className="intro">
             Heeft u met spoed een medische keuring nodig? Een afspraak op
             dezelfde dag is soms mogelijk, ook in de avonduren. Dit gaat
@@ -728,7 +773,8 @@ export default function Home() {
           <div className="card" style={{ maxWidth: "780px" }}>
             <h3>Spoedkeuring op dezelfde dag</h3>
             <ul>
-              <li>Standaard rijbewijskeuring 75+: vanaf €80</li>
+              <li>Standaard rijbewijskeuring 75+: vanaf €80 (geen combikeuring)</li>
+              <li>Medische rijbewijskeuring tot 75 jaar: vanaf €80</li>
               <li>Basis sportkeuring of KNAF-keuring: vanaf €85</li>
             </ul>
             <p>
@@ -760,7 +806,7 @@ export default function Home() {
           <p className="eyebrow">TARIEVEN</p>
 
           <h2 className="sectionTitle">
-            Transparante tarieven
+            Kosten rijbewijskeuring en medische keuring in Nijmegen
           </h2>
 
           <p className="intro">
@@ -963,8 +1009,9 @@ export default function Home() {
               </summary>
 
               <p>
-                Voor een standaard rijbewijskeuring reserveren we
-                ongeveer 15 minuten.
+                Een standaard rijbewijskeuring duurt ongeveer 15 minuten.
+                Voor de combi-rijbewijskeuring 75+ met drie of meer ZorgDomein-codes
+                reserveren we 20 minuten.
               </p>
             </details>
 
@@ -1003,6 +1050,28 @@ export default function Home() {
     </div>
   </div>
 </section>
+
+      {/* AANVULLENDE VEELGESTELDE ZOEKVRAGEN */}
+      <section className="section">
+        <div className="container">
+          <p className="eyebrow">INFORMATIE OVER MEDISCHE KEURINGEN</p>
+          <h2 className="sectionTitle">Veelgestelde vragen over een rijbewijskeuring in Nijmegen</h2>
+          <div className="faq">
+            <details>
+              <summary>Wat kost een rijbewijskeuring 75+ in Nijmegen?</summary>
+              <p>Bij KeurFit kost een standaard rijbewijskeuring 75+ €55 en duurt deze ongeveer 15 minuten. Heeft u drie of meer ZorgDomein-codes, dan boekt u de combikeuring van €75 en 20 minuten.</p>
+            </details>
+            <details>
+              <summary>Kan ik snel een CBR-keuring in Nijmegen plannen?</summary>
+              <p>Via onze online agenda ziet u de beschikbare afspraken. Soms is een spoedkeuring op dezelfde dag mogelijk, ook in de avond. Neem daarvoor contact op via WhatsApp zodra ons zakelijke nummer is toegevoegd. Een afspraak is pas definitief na bevestiging.</p>
+            </details>
+            <details>
+              <summary>Kan ik een CBR-keuring laten uitvoeren zonder verwijzing?</summary>
+              <p>Voor een CBR-keuring is de informatie in uw CBR-verwijzing leidend. Controleer eerst welke keuring en welk type arts het CBR vraagt. Het CBR beslist uiteindelijk over uw rijgeschiktheid.</p>
+            </details>
+          </div>
+        </div>
+      </section>
 
       {/* FOOTER */}
 
