@@ -129,6 +129,49 @@ export default function Home() {
       </section>
 
       {/* ONLINE CBR-KEURING: ACTIEVE INFORMATIE, BOEKEN PAS NA INRICHTING */}
+
+{/* VISUEEL STAPPENPLAN ONLINE KEURING */}
+<section
+  id="online-stappenplan"
+  className="section"
+  aria-labelledby="stappenplan-titel"
+>
+  <div className="container">
+    <p className="eyebrow">IN VIJF STAPPEN</p>
+
+    <h2 id="stappenplan-titel" className="sectionTitle">
+      Hoe werkt een online CBR-rijbewijskeuring?
+    </h2>
+
+    <p className="intro">
+      Van uw Gezondheidsverklaring tot de beoordeling door het CBR.
+      Een online consult is alleen mogelijk wanneer het formulier
+      en de medische situatie daarvoor geschikt zijn.
+    </p>
+
+    <Image
+      src="/keurfit-online-stappenplan.png"
+      alt="Vijf stappen: Gezondheidsverklaring invullen,
+      ZorgDomein-code ontvangen, afspraak plannen bij KeurFit,
+      videogesprek met de arts en beoordeling door het CBR."
+      width={2172}
+      height={625}
+      sizes="(max-width: 768px) 100vw, 1100px"
+      style={{
+        width: "100%",
+        height: "auto",
+        borderRadius: "18px",
+      }}
+    />
+
+    <div className="buttons" style={{ marginTop: "24px" }}>
+      <a href="#afspraak" className="button">
+        Bekijk de mogelijkheden voor een online keuring
+      </a>
+    </div>
+  </div>
+</section>
+
       <section id="online-keuring" className="section soft">
         <div className="container">
           <p className="eyebrow">NIEUW BIJ KEURFIT · LANDELIJK</p>
