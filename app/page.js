@@ -4,16 +4,16 @@ import SimplyBookWidget from "./components/SimplyBookWidget";
 // SEO-metadata voor de homepage (Next.js App Router, servercomponent).
 export const metadata = {
   metadataBase: new URL("https://keurfit.nl"),
-  title: "Rijbewijskeuring Nijmegen | 75+ & CBR-keuring | KeurFit",
-  description: "Rijbewijskeuring in Nijmegen vanaf €55. KeurFit verzorgt 75+ keuringen, CBR-keuringen, sport- en KNAF-keuringen. Bekijk tarieven en boek online.",
+  title: "Online CBR-rijbewijskeuring | Videoconsult Nederland | KeurFit",
+  description: "Online CBR-rijbewijskeuring via videoconsult bij een BIG-geregistreerd arts. Bekijk welke medische indicaties in aanmerking komen. Fysieke keuringen in Nijmegen volgen later.",
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     locale: "nl_NL",
     siteName: "KeurFit",
-    title: "Rijbewijskeuring Nijmegen | KeurFit",
-    description: "Rijbewijskeuring 75+, medische CBR-keuring, sportkeuring en KNAF-keuring in Nijmegen. Plan online uw afspraak.",
+    title: "Online CBR-keuring via videoconsult | KeurFit",
+    description: "CBR-keuring op afstand bij geschikte artsenformulieren. Fysieke keuringen in Nijmegen binnenkort beschikbaar.",
     url: "https://keurfit.nl/",
     images: [{ url: "/keurfit-logo.png", alt: "KeurFit medische keuringen Nijmegen" }],
   },
@@ -26,13 +26,14 @@ const structuredData = {
   name: "KeurFit",
   url: "https://keurfit.nl/",
   logo: "https://keurfit.nl/keurfit-logo.png",
-  description: "Rijbewijskeuringen 75+, CBR-keuringen, sportkeuringen en KNAF-keuringen in Nijmegen.",
+  description: "Online CBR-keuringen via videoconsult; fysieke medische keuringen in Nijmegen volgen later.",
   address: { "@type": "PostalAddress", addressLocality: "Nijmegen", addressCountry: "NL" },
   areaServed: { "@type": "City", name: "Nijmegen" },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Medische keuringen",
     itemListElement: [
+      { "@type": "Offer", name: "Online CBR-rijbewijskeuring (na beoordeling van geschiktheid)", price: "55", priceCurrency: "EUR" },
       { "@type": "Offer", name: "Rijbewijskeuring 75+", price: "55", priceCurrency: "EUR" },
       { "@type": "Offer", name: "Combi-rijbewijskeuring 75+", price: "75", priceCurrency: "EUR" },
       { "@type": "Offer", name: "Medische rijbewijskeuring tot 75 jaar", price: "55", priceCurrency: "EUR" },
@@ -45,6 +46,9 @@ const structuredData = {
 
 // Vul hier je zakelijke WhatsApp-nummer in, inclusief landcode en zonder + of spaties.
 // Voorbeeldformaat: 31612345678. Laat leeg totdat je het nummer hebt ingevuld.
+// Zet pas op true nadat de online dienst, triage, betaling en beveiligde videolink
+// in SimplyBook daadwerkelijk zijn ingericht en juridisch/professioneel getoetst.
+const ONLINE_BOOKING_READY = false;
 const WHATSAPP_NUMBER = "";
 const SPOED_BERICHT = encodeURIComponent(
   "Hallo KeurFit, ik wil graag een spoedkeuring aanvragen. Type keuring (geen combikeuring): ... Gewenste datum: ... Aantal ZorgDomein-codes (indien van toepassing): ..."
@@ -73,6 +77,7 @@ export default function Home() {
           </a>
 
           <nav>
+            <a href="#online-keuring">Online keuring</a>
             <a href="#rijbewijskeuringen">Rijbewijskeuringen</a>
             <a href="#overige-keuringen">Overige keuringen</a>
             <a href="#voorbereiding">Voorbereiding</a>
@@ -89,23 +94,22 @@ export default function Home() {
       <section className="hero">
         <div className="container heroGrid">
           <div>
-            <p className="eyebrow">MEDISCHE KEURINGEN NIJMEGEN</p>
+            <p className="eyebrow">ONLINE CBR-KEURING · HEEL NEDERLAND</p>
 
             <h1>
-              Rijbewijskeuring Nijmegen
-              <span>zorgvuldig en persoonlijk gekeurd.</span>
+              Online CBR-rijbewijskeuring
+              <span>via een persoonlijk videoconsult.</span>
             </h1>
 
             <p className="lead">
-              Bij KeurFit in Nijmegen kunt u terecht voor een rijbewijskeuring 75+,
-              een medische CBR-keuring, sportkeuring of KNAF-keuring.
-              Een BIG-geregistreerd arts voert de keuring zorgvuldig uit.
-              Bekijk de kosten en plan direct online uw afspraak.
+              Voor bepaalde CBR-artsenformulieren kunt u vanuit huis een medische
+              rijbewijskeuring aanvragen. Een BIG-geregistreerd arts beoordeelt eerst
+              of een videoconsult geschikt is. Fysieke keuringen in Nijmegen volgen later.
             </p>
 
             <div className="buttons">
-              <a href="#afspraak" className="button">
-                Plan hier uw afspraak
+              <a href="#online-keuring" className="button">
+                Bekijk de online keuring
               </a>
               <a href="#rijbewijskeuringen" className="button secondary">
                 Bekijk de keuringen
@@ -118,7 +122,7 @@ export default function Home() {
 
             <div className="trust">
               <span>✓ BIG-geregistreerd arts</span>
-              <span>✓ Nijmegen</span>
+              <span>✓ Landelijk via videoconsult</span>
               <span>✓ Persoonlijke aandacht</span>
             </div>
           </div>
@@ -133,6 +137,86 @@ export default function Home() {
               className="heroLogo"
             />
           </div>
+        </div>
+      </section>
+
+      {/* ONLINE CBR-KEURING: ACTIEVE INFORMATIE, BOEKEN PAS NA INRICHTING */}
+      <section id="online-keuring" className="section soft">
+        <div className="container">
+          <p className="eyebrow">NIEUW BIJ KEURFIT · LANDELIJK</p>
+          <h2 className="sectionTitle">Online CBR-rijbewijskeuring via videoconsult</h2>
+          <p className="intro">
+            Heeft het CBR u gevraagd een artsenformulier te laten invullen?
+            Sommige medische beoordelingen kunnen op afstand plaatsvinden,
+            als de verwijzing een algemeen keurend arts toestaat en lichamelijk
+            onderzoek niet noodzakelijk is. Wij beoordelen dit vooraf per aanvraag.
+          </p>
+          <div className="cards">
+            <article className="card">
+              <div className="cardIcon">1</div>
+              <h3>Voor welke onderwerpen?</h3>
+              <p>Een online beoordeling kan afhankelijk van het CBR-formulier worden overwogen bij:</p>
+              <ul>
+                <li>Psychische aandoeningen</li>
+                <li>Diabetes mellitus zonder neurologische schade</li>
+                <li>Hart- en vaatziekten</li>
+                <li>Epileptische aanvallen</li>
+                <li>Ziekte van Ménière</li>
+                <li>Chronische nierschade</li>
+                <li>Flauwvallen</li>
+                <li>Misvorming van hersenbloedvaten</li>
+                <li>Medicijngebruik</li>
+              </ul>
+              <p><strong>Deze lijst is indicatief:</strong> niet elke aandoening of verwijzing is geschikt voor een videoconsult.</p>
+            </article>
+            <article className="card">
+              <div className="cardIcon">2</div>
+              <h3>Wanneer niet online?</h3>
+              <p>Geen volledige online keuring voor:</p>
+              <ul>
+                <li>Standaard rijbewijskeuringen vanaf 75 jaar</li>
+                <li>Combi-rijbewijskeuringen 75+</li>
+                <li>Groot rijbewijs en taxipas</li>
+                <li>Verwijzingen die een medisch specialist vereisen</li>
+                <li>Situaties waarin lichamelijk onderzoek noodzakelijk is</li>
+              </ul>
+              <p>Bij twijfel kan alsnog een fysieke beoordeling of een verwijzing nodig zijn.</p>
+            </article>
+            <article className="card">
+              <div className="cardIcon">3</div>
+              <h3>Zo bereidt u zich voor</h3>
+              <ol>
+                <li>Vul eerst uw Gezondheidsverklaring in bij het CBR.</li>
+                <li>Controleer of uw verwijzing een algemeen keurend arts vraagt.</li>
+                <li>Houd alle ZorgDomein-codes en CBR-documenten gereed.</li>
+                <li>Zorg voor een identiteitsbewijs en actueel medicatieoverzicht.</li>
+                <li>Gebruik een rustige ruimte met camera, microfoon en internet.</li>
+              </ol>
+              <p>Na een geschikte beoordeling kan het artsenverslag via ZorgDomein aan het CBR worden verstrekt. Het CBR beslist over de rijgeschiktheid.</p>
+            </article>
+          </div>
+          <div className="notice" style={{ marginTop: "24px" }}>
+            <strong>Online consult: beoogd tarief €55.</strong> De online afspraakmogelijkheid
+            wordt geactiveerd zodra de benodigde intake, veilige videoverbinding en
+            administratieve inrichting gereed zijn. Tot die tijd kunt u nog niet online boeken.
+          </div>
+          {ONLINE_BOOKING_READY && (
+            <div className="buttons" style={{ marginTop: "20px" }}>
+              <a href="#afspraak" className="button">Plan een online CBR-keuring</a>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section id="fysiek-binnenkort" className="section">
+        <div className="container">
+          <p className="eyebrow">BINNENKORT IN NIJMEGEN</p>
+          <h2 className="sectionTitle">Fysieke keuringen: binnenkort beschikbaar</h2>
+          <p className="intro">
+            De informatie en tarieven voor rijbewijskeuringen 75+, sportkeuringen,
+            KNAF-keuringen en verzekeringskeuringen blijven hieronder staan.
+            Deze afspraken zijn momenteel nog niet boekbaar bij KeurFit.
+          </p>
         </div>
       </section>
 
@@ -173,7 +257,7 @@ export default function Home() {
                 Bekijk voorbereiding →
               </a>
               <div className="buttons" style={{ marginTop: "20px" }}>
-                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+                <a href="#fysiek-binnenkort" className="button secondary">Fysieke afspraken binnenkort</a>
               </div>
             </article>
 
@@ -185,7 +269,7 @@ export default function Home() {
               <p>Boek deze combikeuring in plaats van de standaard 75+-keuring.</p>
               <a href="#voorbereiding-75">Bekijk voorbereiding →</a>
               <div className="buttons" style={{ marginTop: "20px" }}>
-                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+                <a href="#fysiek-binnenkort" className="button secondary">Fysieke afspraken binnenkort</a>
               </div>
             </article>
 
@@ -207,7 +291,7 @@ export default function Home() {
                 Bekijk voorbereiding →
               </a>
               <div className="buttons" style={{ marginTop: "20px" }}>
-                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+                <a href="#fysiek-binnenkort" className="button secondary">Fysieke afspraken binnenkort</a>
               </div>
             </article>
           </div>
@@ -256,7 +340,7 @@ export default function Home() {
                 Bekijk voorbereiding →
               </a>
               <div className="buttons" style={{ marginTop: "20px" }}>
-                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+                <a href="#fysiek-binnenkort" className="button secondary">Fysieke afspraken binnenkort</a>
               </div>
             </article>
 
@@ -278,7 +362,7 @@ export default function Home() {
                 Bekijk voorbereiding →
               </a>
               <div className="buttons" style={{ marginTop: "20px" }}>
-                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+                <a href="#fysiek-binnenkort" className="button secondary">Fysieke afspraken binnenkort</a>
               </div>
             </article>
 
@@ -300,7 +384,7 @@ export default function Home() {
                 Bekijk voorbereiding →
               </a>
               <div className="buttons" style={{ marginTop: "20px" }}>
-                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+                <a href="#fysiek-binnenkort" className="button secondary">Fysieke afspraken binnenkort</a>
               </div>
             </article>
           </div>
@@ -457,7 +541,7 @@ export default function Home() {
               </li>
             </ul>
             <div className="buttons" style={{ marginTop: "20px" }}>
-              <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+              <a href="#fysiek-binnenkort" className="button secondary">Fysieke afspraken binnenkort</a>
             </div>
           </div>
 
@@ -766,12 +850,11 @@ export default function Home() {
           <p className="eyebrow">SPOEDKEURINGEN</p>
           <h2 className="sectionTitle">Spoedkeuring in Nijmegen: soms nog dezelfde dag</h2>
           <p className="intro">
-            Heeft u met spoed een medische keuring nodig? Een afspraak op
-            dezelfde dag is soms mogelijk, ook in de avonduren. Dit gaat
-            uitsluitend op aanvraag en is afhankelijk van beschikbaarheid.
+            Spoedkeuringen op locatie zijn momenteel nog niet beschikbaar.
+            Zodra de fysieke praktijk opent, vindt u hier de mogelijkheden.
           </p>
           <div className="card" style={{ maxWidth: "780px" }}>
-            <h3>Spoedkeuring op dezelfde dag</h3>
+            <h3>Spoedkeuringen: nog niet boekbaar</h3>
             <ul>
               <li>Standaard rijbewijskeuring 75+: vanaf €80 (geen combikeuring)</li>
               <li>Medische rijbewijskeuring tot 75 jaar: vanaf €80</li>
@@ -782,14 +865,14 @@ export default function Home() {
               bij een CBR-keuring, het aantal ZorgDomein-codes. Voor drie of meer codes is uitsluitend de reguliere combikeuring beschikbaar. Wij laten
               weten of een afspraak mogelijk is en bevestigen vooraf het tarief.
             </p>
-            {SPOED_LINK ? (
+            {false && SPOED_LINK ? (
               <div className="buttons" style={{ marginTop: "20px" }}>
                 <a href={SPOED_LINK} className="button" target="_blank" rel="noopener noreferrer">
                   Vraag een spoedkeuring aan via WhatsApp
                 </a>
               </div>
             ) : (
-              <p><strong>WhatsApp-aanvragen:</strong> het zakelijke nummer wordt binnenkort toegevoegd.</p>
+              <p><strong>Let op:</strong> spoedafspraken zijn nog niet beschikbaar.</p>
             )}
             <p style={{ marginTop: "16px", fontSize: "0.9rem" }}>
               Een afspraak is pas definitief na onze bevestiging. Een spoedkeuring
@@ -828,7 +911,7 @@ export default function Home() {
                 Bekijk voorbereiding →
               </a>
               <div className="buttons" style={{ marginTop: "20px" }}>
-                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+                <a href="#fysiek-binnenkort" className="button secondary">Fysieke afspraken binnenkort</a>
               </div>
             </article>
 
@@ -839,7 +922,7 @@ export default function Home() {
               <p>20 minuten</p>
               <a href="#voorbereiding-75">Bekijk voorbereiding →</a>
               <div className="buttons" style={{ marginTop: "20px" }}>
-                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+                <a href="#fysiek-binnenkort" className="button secondary">Fysieke afspraken binnenkort</a>
               </div>
             </article>
 
@@ -856,7 +939,7 @@ export default function Home() {
                 Bekijk voorbereiding →
               </a>
               <div className="buttons" style={{ marginTop: "20px" }}>
-                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+                <a href="#fysiek-binnenkort" className="button secondary">Fysieke afspraken binnenkort</a>
               </div>
             </article>
 
@@ -873,7 +956,7 @@ export default function Home() {
                 Bekijk voorbereiding →
               </a>
               <div className="buttons" style={{ marginTop: "20px" }}>
-                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+                <a href="#fysiek-binnenkort" className="button secondary">Fysieke afspraken binnenkort</a>
               </div>
             </article>
 
@@ -890,12 +973,12 @@ export default function Home() {
                 Bekijk voorbereiding →
               </a>
               <div className="buttons" style={{ marginTop: "20px" }}>
-                <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+                <a href="#fysiek-binnenkort" className="button secondary">Fysieke afspraken binnenkort</a>
               </div>
             </article>
           </div>
           <div className="buttons" style={{ marginTop: "30px" }}>
-            <a href="#afspraak" className="button">Plan hier uw afspraak</a>
+            <a href="#fysiek-binnenkort" className="button secondary">Fysieke afspraken binnenkort</a>
           </div>
         </div>
       </section>
@@ -1041,13 +1124,20 @@ export default function Home() {
     </h2>
 
     <p className="intro">
-      Kies hieronder de gewenste keuring en een beschikbaar moment.
-      U kunt uw afspraak direct online plannen.
+      Online CBR-keuringen worden binnenkort via deze agenda beschikbaar.
+      Fysieke afspraken in Nijmegen zijn nog niet boekbaar.
     </p>
 
-    <div className="bookingCard">
-      <SimplyBookWidget />
-    </div>
+    {ONLINE_BOOKING_READY ? (
+      <div className="bookingCard">
+        <SimplyBookWidget />
+      </div>
+    ) : (
+      <div className="notice">
+        <strong>Boekingen nog niet geopend.</strong> De online CBR-dienst wordt
+        momenteel ingericht. De overige keuringen zijn pas later fysiek beschikbaar.
+      </div>
+    )}
   </div>
 </section>
 
@@ -1063,7 +1153,7 @@ export default function Home() {
             </details>
             <details>
               <summary>Kan ik snel een CBR-keuring in Nijmegen plannen?</summary>
-              <p>Via onze online agenda ziet u de beschikbare afspraken. Soms is een spoedkeuring op dezelfde dag mogelijk, ook in de avond. Neem daarvoor contact op via WhatsApp zodra ons zakelijke nummer is toegevoegd. Een afspraak is pas definitief na bevestiging.</p>
+              <p>Online CBR-keuringen worden voorbereid. Fysieke afspraken en spoedkeuringen in Nijmegen zijn nog niet boekbaar.</p>
             </details>
             <details>
               <summary>Kan ik een CBR-keuring laten uitvoeren zonder verwijzing?</summary>
