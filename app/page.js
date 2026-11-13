@@ -5,7 +5,7 @@ import SimplyBookWidget from "./components/SimplyBookWidget";
 export const metadata = {
   metadataBase: new URL("https://keurfit.nl"),
   title: "Online CBR-rijbewijskeuring | Videoconsult Nederland | KeurFit",
-  description: "Online CBR-rijbewijskeuring via videoconsult bij een BIG-geregistreerd arts. Bekijk welke medische indicaties in aanmerking komen. Fysieke keuringen in Nijmegen volgen later.",
+  description: "Online CBR-rijbewijskeuring via videoconsult bij een BIG-geregistreerd arts. Bekijk welke medische indicaties in aanmerking komen. Uitsluitend voor CBR-formulieren die geschikt zijn voor beoordeling op afstand.",
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   openGraph: {
@@ -13,9 +13,9 @@ export const metadata = {
     locale: "nl_NL",
     siteName: "KeurFit",
     title: "Online CBR-keuring via videoconsult | KeurFit",
-    description: "CBR-keuring op afstand bij geschikte artsenformulieren. Fysieke keuringen in Nijmegen binnenkort beschikbaar.",
+    description: "CBR-keuring op afstand bij geschikte artsenformulieren. Voor geschikte CBR-artsenformulieren, na voorafgaande beoordeling.",
     url: "https://keurfit.nl/",
-    images: [{ url: "/keurfit-logo.png", alt: "KeurFit medische keuringen Nijmegen" }],
+    images: [{ url: "/keurfit-logo.png", alt: "KeurFit online CBR-rijbewijskeuring" }],
   },
 };
 
@@ -26,19 +26,13 @@ const structuredData = {
   name: "KeurFit",
   url: "https://keurfit.nl/",
   logo: "https://keurfit.nl/keurfit-logo.png",
-  description: "Online CBR-keuringen via videoconsult; fysieke medische keuringen in Nijmegen volgen later.",
-  address: { "@type": "PostalAddress", addressLocality: "Nijmegen", addressCountry: "NL" },
-  areaServed: { "@type": "City", name: "Nijmegen" },
+  description: "Online CBR-artsenformulieren via een beveiligd videoconsult, na beoordeling van de geschiktheid.",
+  areaServed: { "@type": "Country", name: "Nederland" },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Medische keuringen",
     itemListElement: [
-      { "@type": "Offer", name: "Online CBR-rijbewijskeuring (na beoordeling van geschiktheid)", price: "55", priceCurrency: "EUR" },
-      { "@type": "Offer", name: "Rijbewijskeuring 75+", price: "55", priceCurrency: "EUR" },
-      { "@type": "Offer", name: "Combi-rijbewijskeuring 75+", price: "75", priceCurrency: "EUR" },
-      { "@type": "Offer", name: "Medische rijbewijskeuring tot 75 jaar", price: "55", priceCurrency: "EUR" },
-      { "@type": "Offer", name: "Basis sportkeuring", price: "60", priceCurrency: "EUR" },
-      { "@type": "Offer", name: "KNAF-keuring", price: "60", priceCurrency: "EUR" },
+      { "@type": "Offer", name: "Online CBR-rijbewijskeuring (na beoordeling van geschiktheid)", price: "55", priceCurrency: "EUR" }
     ],
   },
 };
@@ -49,6 +43,8 @@ const structuredData = {
 // Zet pas op true nadat de online dienst, triage, betaling en beveiligde videolink
 // in SimplyBook daadwerkelijk zijn ingericht en juridisch/professioneel getoetst.
 const ONLINE_BOOKING_READY = false;
+// Bewaar alle bestaande onderdelen, maar toon ze pas wanneer de praktijk opent.
+const PHYSICAL_SERVICES_ENABLED = false;
 const WHATSAPP_NUMBER = "";
 const SPOED_BERICHT = encodeURIComponent(
   "Hallo KeurFit, ik wil graag een spoedkeuring aanvragen. Type keuring (geen combikeuring): ... Gewenste datum: ... Aantal ZorgDomein-codes (indien van toepassing): ..."
@@ -78,12 +74,8 @@ export default function Home() {
 
           <nav>
             <a href="#online-keuring">Online keuring</a>
-            <a href="#rijbewijskeuringen">Rijbewijskeuringen</a>
-            <a href="#overige-keuringen">Overige keuringen</a>
-            <a href="#voorbereiding">Voorbereiding</a>
-            <a href="#tarieven">Tarieven</a>
-            <a href="#faq">FAQ</a>
-            <a href="#spoedkeuring">Spoedkeuring</a>
+            <a href="#online-voorbereiding">Voorbereiding</a>
+            <a href="#online-faq">Veelgestelde vragen</a>
             <a href="#afspraak">Afspraak maken</a>
           </nav>
         </div>
@@ -104,19 +96,15 @@ export default function Home() {
             <p className="lead">
               Voor bepaalde CBR-artsenformulieren kunt u vanuit huis een medische
               rijbewijskeuring aanvragen. Een BIG-geregistreerd arts beoordeelt eerst
-              of een videoconsult geschikt is. Fysieke keuringen in Nijmegen volgen later.
+              of een videoconsult geschikt is.
             </p>
 
             <div className="buttons">
               <a href="#online-keuring" className="button">
                 Bekijk de online keuring
               </a>
-              <a href="#rijbewijskeuringen" className="button secondary">
-                Bekijk de keuringen
-              </a>
-
-              <a href="#voorbereiding" className="button secondary">
-                Wat moet ik meenemen?
+              <a href="#online-voorbereiding" className="button secondary">
+                Hoe werkt het?
               </a>
             </div>
 
@@ -180,7 +168,7 @@ export default function Home() {
                 <li>Verwijzingen die een medisch specialist vereisen</li>
                 <li>Situaties waarin lichamelijk onderzoek noodzakelijk is</li>
               </ul>
-              <p>Bij twijfel kan alsnog een fysieke beoordeling of een verwijzing nodig zijn.</p>
+              <p>Als het videoconsult onvoldoende is, kan aanvullend onderzoek of een verwijzing nodig zijn.</p>
             </article>
             <article className="card">
               <div className="cardIcon">3</div>
@@ -208,6 +196,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Bewaard voor de latere opening; nu niet gerenderd. */}
+      {PHYSICAL_SERVICES_ENABLED && (
+        <>
       <section id="fysiek-binnenkort" className="section">
         <div className="container">
           <p className="eyebrow">BINNENKORT IN NIJMEGEN</p>
@@ -1113,6 +1104,35 @@ export default function Home() {
         </div>
       </section>
 
+        </>
+      )}
+
+      <section id="online-voorbereiding" className="section">
+        <div className="container">
+          <p className="eyebrow">ZO WERKT HET</p>
+          <h2 className="sectionTitle">Een online CBR-keuring aanvragen</h2>
+          <div className="steps">
+            <div className="step"><span>1</span><div><h3>Ontvang uw CBR-verwijzing</h3><p>Vul de Gezondheidsverklaring in via het CBR en wacht op uw verwijzing en eventuele ZorgDomein-code.</p></div></div>
+            <div className="step"><span>2</span><div><h3>Laat uw formulier beoordelen</h3><p>Niet ieder artsenformulier kan online. Wij controleren of een algemeen keurend arts bevoegd is en of lichamelijk onderzoek achterwege kan blijven.</p></div></div>
+            <div className="step"><span>3</span><div><h3>Videoconsult</h3><p>Als de aanvraag geschikt is, vindt het consult plaats via een beveiligde videoverbinding. Houd uw identiteitsbewijs, verwijzing en medicatieoverzicht gereed.</p></div></div>
+            <div className="step"><span>4</span><div><h3>Rapportage aan het CBR</h3><p>De arts verwerkt de bevindingen via de daarvoor beschikbare route. Het CBR beslist over uw rijgeschiktheid.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="online-faq" className="section soft">
+        <div className="container">
+          <p className="eyebrow">VEELGESTELDE VRAGEN</p>
+          <h2 className="sectionTitle">Veelgestelde vragen over online CBR-keuringen</h2>
+          <div className="faq">
+            <details><summary>Kan iedere CBR-keuring via videoconsult?</summary><p>Nee. Dat hangt af van de verwijzing, het type artsenformulier en de vraag of lichamelijk onderzoek noodzakelijk is. Wij beoordelen dit vooraf.</p></details>
+            <details><summary>Kan ik een online CBR-keuring aanvragen vanuit heel Nederland?</summary><p>Ja, voor aanvragen die geschikt zijn voor een videoconsult. U hoeft daarvoor niet naar een spreekkamer te reizen.</p></details>
+            <details><summary>Wat heb ik nodig voor een online keuring?</summary><p>Uw CBR-verwijzing, alle relevante ZorgDomein-codes, een geldig identiteitsbewijs, een actueel medicatieoverzicht en een apparaat met camera en microfoon.</p></details>
+            <details><summary>Wie beslist of ik mijn rijbewijs mag houden?</summary><p>Het CBR neemt de uiteindelijke beslissing over uw rijgeschiktheid. De keurend arts verstrekt een medische beoordeling.</p></details>
+          </div>
+        </div>
+      </section>
+
     {/* AFSPRAAK MAKEN */}
 
 <section id="afspraak" className="section appointment">
@@ -1125,7 +1145,7 @@ export default function Home() {
 
     <p className="intro">
       Online CBR-keuringen worden binnenkort via deze agenda beschikbaar.
-      Fysieke afspraken in Nijmegen zijn nog niet boekbaar.
+      Wij beoordelen vooraf of uw CBR-formulier geschikt is voor een online consult.
     </p>
 
     {ONLINE_BOOKING_READY ? (
@@ -1135,12 +1155,15 @@ export default function Home() {
     ) : (
       <div className="notice">
         <strong>Boekingen nog niet geopend.</strong> De online CBR-dienst wordt
-        momenteel ingericht. De overige keuringen zijn pas later fysiek beschikbaar.
+        momenteel ingericht. Online boeken is nog niet mogelijk.
       </div>
     )}
   </div>
 </section>
 
+      {/* Bestaande lokale SEO-informatie blijft in de code voor later. */}
+      {PHYSICAL_SERVICES_ENABLED && (
+        <>
       {/* AANVULLENDE VEELGESTELDE ZOEKVRAGEN */}
       <section className="section">
         <div className="container">
@@ -1163,6 +1186,9 @@ export default function Home() {
         </div>
       </section>
 
+        </>
+      )}
+
       {/* FOOTER */}
 
       <footer>
@@ -1179,8 +1205,8 @@ export default function Home() {
             />
 
             <p>
-              Rijbewijskeuringen en medische keuringen door een
-              BIG-geregistreerd arts in Nijmegen.
+              Online CBR-rijbewijskeuringen via videoconsult door een
+              BIG-geregistreerd arts, voor geschikte aanvragen in heel Nederland.
             </p>
           </div>
 
@@ -1192,7 +1218,7 @@ export default function Home() {
             <p>Onderdeel van AestheFit</p>
             <p>KVK: 99164752</p>
             <p>BTW-id: NL005374477B91</p>
-            <p>Nijmegen</p>
+            {PHYSICAL_SERVICES_ENABLED && <p>Nijmegen</p>}
           </div>
 
           {/* NAVIGATIE */}
@@ -1200,27 +1226,18 @@ export default function Home() {
           <div>
             <strong>Navigatie</strong>
 
-            <a href="#rijbewijskeuringen">
-              Rijbewijskeuringen
-            </a>
-
-            <a href="#overige-keuringen">
-              Overige keuringen
-            </a>
-
-            <a href="#voorbereiding">
-              Voorbereiding
-            </a>
-
-            <a href="#tarieven">
-              Tarieven
-            </a>
-
-            <a href="#faq">
-              Veelgestelde vragen
-            </a>
-            <a href="#spoedkeuring">Spoedkeuringen</a>
+            <a href="#online-keuring">Online CBR-keuring</a>
+            <a href="#online-voorbereiding">Voorbereiding</a>
+            <a href="#online-faq">Veelgestelde vragen</a>
             <a href="#afspraak">Afspraak maken</a>
+            {PHYSICAL_SERVICES_ENABLED && (
+              <>
+                <a href="#rijbewijskeuringen">Rijbewijskeuringen</a>
+                <a href="#overige-keuringen">Overige keuringen</a>
+                <a href="#tarieven">Tarieven</a>
+                <a href="#spoedkeuring">Spoedkeuringen</a>
+              </>
+            )}
           </div>
 
           {/* INFORMATIE */}
